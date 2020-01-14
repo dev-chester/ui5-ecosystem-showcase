@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="sap.ui.commons.enums"
+	>
+	<xsd:simpleType name="_AreaDesignType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Fill">
+				<xsd:annotation>
+					<xsd:documentation>Shows the label in a filled look</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Plain">
+				<xsd:annotation>
+					<xsd:documentation>Shows the area in a plain look</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Transparent">
+				<xsd:annotation>
+					<xsd:documentation>Shows the background as transparent</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="_BorderDesignType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Box">
+				<xsd:annotation>
+					<xsd:documentation>Draws the border as a box around the area</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="None">
+				<xsd:annotation>
+					<xsd:documentation>Suppresses the border</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="_OrientationType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="horizontal">
+				<xsd:annotation>
+					<xsd:documentation>Horizontal orientation</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="vertical">
+				<xsd:annotation>
+					<xsd:documentation>Vertical orientation</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

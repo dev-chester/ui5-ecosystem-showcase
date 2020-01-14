@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="sap.m.plugins"
+	xmlns:n0="sap.m.plugins"
+	xmlns:n1="sap.ui.core"
+	>
+	<xsd:import namespace="sap.ui.core"/>
+	<xsd:element name="DataStateIndicator" type="n0:_DataStateIndicatorType" substitutionGroup="n1:Element">
+		<xsd:annotation>
+			<xsd:documentation>This plugin implements a message strip used to show binding-related messages.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!--type definition for UIElement 'sap.m.plugins.DataStateIndicator'-->
+	<xsd:complexType name="_DataStateIndicatorType">
+		<xsd:complexContent>
+			<xsd:extension base="n1:_ElementType">
+				<xsd:attribute name="filter" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Defines a predicate to test each data state of the messages.
+
+This callback gets called via the {@link sap.ui.model.DataState data state} parameter. Return &lt;code&gt;true&lt;/code&gt; to keep the data state, &lt;code&gt;false&lt;/code&gt; otherwise.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="dataStateChange" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>This event is fired when the {@link sap.ui.model.DataState data state} of the plugin parent is changed.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+</xsd:schema>

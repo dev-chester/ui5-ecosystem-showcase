@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="sap.ui.table.plugins"
+	xmlns:n0="sap.ui.table.plugins"
+	xmlns:n1="sap.ui.core"
+	>
+	<xsd:import namespace="sap.ui.core"/>
+	<xsd:element name="MultiSelectionPlugin" type="n0:_MultiSelectionPluginType" substitutionGroup="n0:SelectionPlugin">
+		<xsd:annotation>
+			<xsd:documentation>Implements a plugin to enable a special multi-selection behavior: &lt;ul&gt; &lt;li&gt;No Select All checkbox, select all can only be done via range selection&lt;/li&gt; &lt;li&gt;Dedicated Deselect All button to clear the selection&lt;/li&gt; &lt;li&gt;The number of indices which can be selected in a range is defined by the &lt;code&gt;limit&lt;/code&gt; property by the application. If the user tries to select more indices, the selection is automatically limited, and the table scrolls to the last selected index.&lt;/li&gt; &lt;li&gt;The plugin makes sure that the corresponding binding contexts up to the given limit are available, by requesting them from the binding.&lt;/li&gt; &lt;li&gt;Multiple consecutive selections are possible&lt;/li&gt; &lt;/ul&gt;
+
+This plugin is intended for the multi-selection mode, but also supports single selection for ease of use. When this plugin is applied to the table, the table's selection mode is automatically set to MultiToggle and cannot be changed.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SelectionPlugin" type="n0:_SelectionPluginType" substitutionGroup="n1:Element">
+		<xsd:annotation>
+			<xsd:documentation>Implements the selection methods for a table.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!--type definition for UIElement 'sap.ui.table.plugins.MultiSelectionPlugin'-->
+	<xsd:complexType name="_MultiSelectionPluginType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_SelectionPluginType">
+				<xsd:attribute name="limit" type="xsd:int">
+					<xsd:annotation>
+						<xsd:documentation>Number of indices which can be selected in a range. Accepts positive integer values. If set to 0, the limit is disabled, and the Select All checkbox appears instead of the Deselect All button. &lt;b&gt;Note:&lt;/b&gt; To avoid severe performance problems, the limit should only be set to 0 in the following cases: &lt;ul&gt; &lt;li&gt;With client-side models&lt;/li&gt; &lt;li&gt;With server-side models if they are used in client mode&lt;/li&gt; &lt;li&gt;If the entity set is small&lt;/li&gt; &lt;/ul&gt; In other cases, we recommend to set the limit to at least double the value of the {@link sap.ui.table.Table#getThreshold threshold} property of the related &lt;code&gt;sap.ui.table.Table&lt;/code&gt; control.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="enableNotification" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>Enables notifications that are displayed once a selection has been limited.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="showHeaderSelector" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>Show header selector</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.ui.table.plugins.SelectionPlugin'-->
+	<xsd:complexType name="_SelectionPluginType">
+		<xsd:complexContent>
+			<xsd:extension base="n1:_ElementType">
+				<xsd:attribute name="selectionChange" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>This event is fired when the selection is changed.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+</xsd:schema>

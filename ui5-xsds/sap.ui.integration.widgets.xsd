@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="sap.ui.integration.widgets"
+	xmlns:n0="sap.ui.integration.widgets"
+	xmlns:n1="sap.ui.core"
+	xmlns:n2="sap.ui.integration"
+	>
+	<xsd:import namespace="sap.ui.core"/>
+	<xsd:import namespace="sap.ui.integration"/>
+	<xsd:element name="Card" type="n0:_CardType" substitutionGroup="n1:Control">
+		<xsd:annotation>
+			<xsd:documentation>A control that represents a container with a header and content.
+
+&lt;h3&gt;Overview&lt;/h3&gt; Cards are small user interface elements which provide the most important information from an app, related to a specific role or task. The information is represented in a compact manner, allowing for actions to be executed. Cards can be described as small representations of an app which can be integrated in different systems.
+
+The integration card is defined in a declarative way, using a manifest.json to be: &lt;ul&gt; &lt;li&gt;Easily integrated into apps&lt;/li&gt; &lt;li&gt;Easily reused across apps&lt;/li&gt; &lt;li&gt;Understandable by other technologies&lt;/li&gt; &lt;li&gt;Self-contained (has a built-in functionality and doesn't need external configuration)&lt;/li&gt; &lt;li&gt;Dynamic parameter handling&lt;/li&gt; &lt;li&gt;Clear separation of the roles of the card and app developers&lt;/li&gt; &lt;/ul&gt;
+
+The role of the card developer is to describe the card in a manifest.json file and define: &lt;ul&gt; &lt;li&gt;Header&lt;/li&gt; &lt;li&gt;Content&lt;/li&gt; &lt;li&gt;Data source&lt;/li&gt; &lt;li&gt;Possible actions&lt;/li&gt; &lt;/ul&gt;
+
+The role of the app developer is to integrate the card into the app and define: &lt;ul&gt; &lt;li&gt;The dimensions of the card inside a layout of choice, using the &lt;code&gt;width&lt;/code&gt; and &lt;code&gt;height&lt;/code&gt; properties&lt;/li&gt; &lt;li&gt;The behavior for the actions described in the manifest.json file, using the action event&lt;/li&gt; &lt;/ul&gt;
+
+&lt;strong&gt;You can learn more about integration cards in the &lt;a href="test-resources/sap/ui/integration/demokit/cardExplorer/index.html"&gt;Card Explorer&lt;/a&gt;&lt;/strong&gt;
+
+&lt;i&gt;When to use&lt;/i&gt; &lt;ul&gt; &lt;li&gt;When you want to reuse the card across apps.&lt;/li&gt; &lt;li&gt;When you need easy integration and configuration.&lt;/li&gt; &lt;/ul&gt;
+
+&lt;i&gt;When not to use&lt;/i&gt; &lt;ul&gt; &lt;li&gt;When you need more header and content flexibility.&lt;/li&gt; &lt;li&gt;When you have to achieve simple card visualization. For such cases, use: {@link sap.f.Card Card}.&lt;/li&gt; &lt;li&gt;When you have to use an application model. For such cases, use: {@link sap.f.Card Card}.&lt;/li&gt; &lt;li&gt;When you need complex behavior. For such cases, use: {@link sap.f.Card Card}.&lt;/li&gt; &lt;/ul&gt;</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!--type definition for UIElement 'sap.ui.integration.widgets.Card'-->
+	<xsd:complexType name="_CardType">
+		<xsd:complexContent>
+			<xsd:extension base="n1:_ControlType">
+				<xsd:sequence/>
+				<xsd:attribute name="manifest" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>The URL of the manifest or an object.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="parameters" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>The parameters used in the manifest.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="width" type="n1:_CSSSizeType">
+					<xsd:annotation>
+						<xsd:documentation>Defines the width of the card.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="height" type="n1:_CSSSizeType">
+					<xsd:annotation>
+						<xsd:documentation>Defines the height of the card.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="dataMode" type="n2:_CardDataModeType">
+					<xsd:annotation>
+						<xsd:documentation>Defines the state of the &lt;code&gt;Card&lt;/code&gt;. When set to &lt;code&gt;Inactive&lt;/code&gt;, the &lt;code&gt;Card&lt;/code&gt; doesn't make requests.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="baseUrl" type="n1:_URIType">
+					<xsd:annotation>
+						<xsd:documentation>Defines the base URL of the Card Manifest. It should be used when manifest property is an object instead of a URL.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="hostConfigurationId" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>The ID of the host configuration.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="action" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Fired when an action is triggered on the card.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="manifestReady" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Fired when the manifest is loaded.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+</xsd:schema>

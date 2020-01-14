@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="sap.ui.core.dnd"
+	xmlns:n0="sap.ui.core.dnd"
+	xmlns:n1="sap.ui.core"
+	>
+	<xsd:import namespace="sap.ui.core"/>
+	<xsd:element name="DragDropBase" type="n0:_DragDropBaseType" substitutionGroup="n1:Element">
+		<xsd:annotation>
+			<xsd:documentation>Provides the base class for all drag-and-drop configurations. This feature enables a native HTML5 drag-and-drop API for the controls, therefore it is limited to browser support. &lt;h3&gt;Limitations&lt;/h3&gt; &lt;ul&gt; &lt;li&gt;There is no mobile device that supports drag and drop.&lt;/li&gt; &lt;li&gt;There is no accessible alternative for drag and drop. Applications which use the drag-and-drop functionality must provide an accessible alternative UI (for example, action buttons or menus) to perform the same operations.&lt;/li&gt; &lt;li&gt;A custom dragging ghost element is not possible in Internet Explorer.&lt;/li&gt; &lt;li&gt;Transparency of the drag ghost element and the cursor during drag-and-drop operations depends on the browser implementation.&lt;/li&gt; &lt;li&gt;Internet Explorer does only support plain text MIME type for the DataTransfer Object.&lt;/li&gt; &lt;li&gt;In Internet Explorer, default visual drop effect is &lt;code&gt;copy&lt;/code&gt; and &lt;code&gt;dropEffect&lt;/code&gt; property of the &lt;code&gt;DropInfo&lt;/code&gt; has no effect. &lt;li&gt;Constraining a drag position is not possible, therefore there is no snap-to-grid or snap-to-element feature possible.&lt;/li&gt; &lt;li&gt;Texts in draggable controls cannot be selected.&lt;/li&gt; &lt;li&gt;The text of input fields in draggable controls can be selected, but not dragged.&lt;/li&gt; &lt;/ul&gt;</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="DragDropInfo" type="n0:_DragDropInfoType" substitutionGroup="n0:DropInfo">
+		<xsd:annotation>
+			<xsd:documentation>Provides the configuration for drag-and-drop operations.
+
+&lt;b&gt;Note:&lt;/b&gt; This configuration might be ignored due to control {@link sap.ui.core.Element.extend metadata} restrictions.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="DragInfo" type="n0:_DragInfoType" substitutionGroup="n0:DragDropBase">
+		<xsd:annotation>
+			<xsd:documentation>Provides the configuration for drag operations.
+
+&lt;b&gt;Note:&lt;/b&gt; This configuration might be ignored due to control {@link sap.ui.core.Element.extend metadata} restrictions.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="DropInfo" type="n0:_DropInfoType" substitutionGroup="n0:DragDropBase">
+		<xsd:annotation>
+			<xsd:documentation>Provides the configuration for drop operations. &lt;b&gt;Note:&lt;/b&gt; This configuration might be ignored due to control {@link sap.ui.core.Element.extend metadata} restrictions.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!--type definition for UIElement 'sap.ui.core.dnd.DragDropBase'-->
+	<xsd:complexType name="_DragDropBaseType">
+		<xsd:complexContent>
+			<xsd:extension base="n1:_ElementType">
+				<xsd:attribute name="groupName" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Defines the name of the group to which this object belongs. If &lt;code&gt;groupName&lt;/code&gt; is specified, then this object will only interacts with other drag-and-drop objects within the same group.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="enabled" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>Indicates whether this configuration is active or not.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.ui.core.dnd.DragDropInfo'-->
+	<xsd:complexType name="_DragDropInfoType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_DropInfoType">
+				<xsd:attribute name="sourceAggregation" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>The name of the aggregation from which all children can be dragged. If undefined, the control itself can be dragged.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="targetElement" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>The target element for this drag and drop action. If undefined, the control with this drag and drop configuration itself is the target. Leaving this empty, but defining source and target aggregation, allows you to reorder the children within a control, for example.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="dragStart" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>This event is fired when the user starts dragging an element.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="dragEnd" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>This event is fired when a drag operation is being ended.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.ui.core.dnd.DragInfo'-->
+	<xsd:complexType name="_DragInfoType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_DragDropBaseType">
+				<xsd:attribute name="sourceAggregation" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>The name of the aggregation from which all children can be dragged. If undefined, the control itself can be dragged.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="dragStart" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>This event is fired when the user starts dragging an element.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="dragEnd" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>This event is fired when a drag operation is being ended.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.ui.core.dnd.DropInfo'-->
+	<xsd:complexType name="_DropInfoType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_DragDropBaseType">
+				<xsd:attribute name="targetAggregation" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>The aggregation name in the drop target control which is the target of this drag-and-drop action. If undefined, the entire control is the target. This can be handy if the target control does not have any aggregations or if the drop position within the target does not matter.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="dropEffect" type="n0:_DropEffectType">
+					<xsd:annotation>
+						<xsd:documentation>Defines the visual drop effect.
+
+In Internet Explorer, default visual drop effect is &lt;code&gt;Copy&lt;/code&gt; and this property has no effect.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="dropPosition" type="n0:_DropPositionType">
+					<xsd:annotation>
+						<xsd:documentation>Defines the position for the drop action, visualized by a rectangle.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="dropLayout" type="n0:_DropLayoutType">
+					<xsd:annotation>
+						<xsd:documentation>Defines the layout of the droppable controls if &lt;code&gt;dropPosition&lt;/code&gt; is set to &lt;code&gt;Between&lt;/code&gt; or &lt;code&gt;OnOrBetween&lt;/code&gt;.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="dragEnter" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>This event is fired when a dragged element enters a drop target.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="dragOver" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>This event is fired when an element is being dragged over a valid drop target.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="drop" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>This event is fired when an element is dropped on a valid drop target, as specified by the drag-and-drop info.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:simpleType name="_DropEffectType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Copy">
+				<xsd:annotation>
+					<xsd:documentation>A copy of the source item is made at the new location.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Link">
+				<xsd:annotation>
+					<xsd:documentation>A link is established to the source at the new location.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Move">
+				<xsd:annotation>
+					<xsd:documentation>An item is moved to a new location.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="None">
+				<xsd:annotation>
+					<xsd:documentation>The item cannot be dropped.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="_DropLayoutType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Default">
+				<xsd:annotation>
+					<xsd:documentation>Default {@link sap.ui.core.Element.extend layout} definition of the aggregations.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Horizontal">
+				<xsd:annotation>
+					<xsd:documentation>Droppable controls are arranged horizontally.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Vertical">
+				<xsd:annotation>
+					<xsd:documentation>Droppable controls are arranged vertically.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="_DropPositionType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Between">
+				<xsd:annotation>
+					<xsd:documentation>Drop between the controls.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="On">
+				<xsd:annotation>
+					<xsd:documentation>Drop on the control.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="OnOrBetween">
+				<xsd:annotation>
+					<xsd:documentation>Drop on the control or between the controls.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

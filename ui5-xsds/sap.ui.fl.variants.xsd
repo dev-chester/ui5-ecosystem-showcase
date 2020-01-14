@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="sap.ui.fl.variants"
+	xmlns:n0="sap.ui.fl.variants"
+	xmlns:n1="sap.ui.core"
+	>
+	<xsd:import namespace="sap.ui.core"/>
+	<xsd:element name="VariantManagement" type="n0:_VariantManagementType" substitutionGroup="n1:Control">
+		<xsd:annotation>
+			<xsd:documentation>Can be used to manage variants. You can use this control in most controls that are enabled for &lt;i&gt;key user adaptation&lt;/i&gt;.&lt;br&gt; &lt;b&gt;Note: &lt;/b&gt;On the user interface, variants are generally referred to as "views".</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!--type definition for UIElement 'sap.ui.fl.variants.VariantManagement'-->
+	<xsd:complexType name="_VariantManagementType">
+		<xsd:complexContent>
+			<xsd:extension base="n1:_ControlType">
+				<xsd:attribute name="showExecuteOnSelection" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>Indicates that &lt;i&gt;Apply Automatically&lt;/i&gt; is visible in the &lt;i&gt;Save View&lt;/i&gt; and the &lt;i&gt;Manage Views&lt;/i&gt; dialogs.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="showSetAsDefault" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>Indicates that &lt;i&gt;Set as Default&lt;/i&gt; is visible in the &lt;i&gt;Save View&lt;/i&gt; and the &lt;i&gt;Manage Views&lt;/i&gt; dialogs.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="manualVariantKey" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>If set to &lt;code&gt;true&lt;/code&gt;, the key for a vendor variant will be added manually.&lt;br&gt; &lt;b&gt;Note:&lt;/b&gt;This flag is only used internally in the app variant scenarios.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="inErrorState" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>Indicates that the control is in error state. If set to &lt;code&gt;true&lt;/code&gt;, an error message will be displayed whenever the variant is opened.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="editable" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>Indicates that the control is in edit state. If set to &lt;code&gt;false&lt;/code&gt;, the footer of the &lt;i&gt;Views&lt;/i&gt; list will be hidden.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="modelName" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Determines the name of the model. The binding context will be defined by the current ID. &lt;p&gt; &lt;b&gt;Note:&lt;/b&gt; In a UI adaptation scenario, this property is not used at all, because the model name is &lt;code&gt;$FlexVariants&lt;/code&gt;.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="updateVariantInURL" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>Determines the intention of setting the current variant based on passed information. &lt;p&gt; &lt;b&gt;Note:&lt;/b&gt; The &lt;code&gt;VariantManagement&lt;/code&gt; control does not react in any way to this property.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="resetOnContextChange" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>When set to false, doesn't reset the &lt;code&gt;VariantManagement&lt;/code&gt; control to the default variant, when its binding context is changed.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="for" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Contains the controls for which the variant management is responsible.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="save" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>This event is fired when the &lt;i&gt;Save View&lt;/i&gt; dialog is closed with &lt;i&gt;OK&lt;/i&gt; for a variant.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="manage" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>This event is fired when users apply changes to variants in the &lt;i&gt;Manage Views&lt;/i&gt; dialog.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="initialized" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>This event is fired when the model and context are set.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="select" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>This event is fired when a new variant is selected.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+</xsd:schema>

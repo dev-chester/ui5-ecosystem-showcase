@@ -1,0 +1,78 @@
+<<!-- downloaded from https://github.com/SAP/openui5/files/3941988/schemas.zip -->
+<!DOCTYPE catalog
+PUBLIC "-//OASIS//DTD Entity Resolution XML Catalog V1.0//EN"
+"http://www.oasis-open.org/committees/entity/release/1.0/catalog.dtd">
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="public">
+	<public publicId="sap.ui.commons.enums" uri="./sap.ui.commons.enums.xsd" />
+	<uri name="sap.ui.commons.enums" uri="./sap.ui.commons.enums.xsd"/>
+	<public publicId="sap.ui.core" uri="./sap.ui.core.xsd" />
+	<uri name="sap.ui.core" uri="./sap.ui.core.xsd"/>
+	<public publicId="sap.m.plugins" uri="./sap.m.plugins.xsd" />
+	<uri name="sap.m.plugins" uri="./sap.m.plugins.xsd"/>
+	<public publicId="sap.ui.codeeditor" uri="./sap.ui.codeeditor.xsd" />
+	<uri name="sap.ui.codeeditor" uri="./sap.ui.codeeditor.xsd"/>
+	<public publicId="sap.ui.core.dnd" uri="./sap.ui.core.dnd.xsd" />
+	<uri name="sap.ui.core.dnd" uri="./sap.ui.core.dnd.xsd"/>
+	<public publicId="sap.f.dnd" uri="./sap.f.dnd.xsd" />
+	<uri name="sap.f.dnd" uri="./sap.f.dnd.xsd"/>
+	<public publicId="sap.ui.core.hyphenation" uri="./sap.ui.core.hyphenation.xsd" />
+	<uri name="sap.ui.core.hyphenation" uri="./sap.ui.core.hyphenation.xsd"/>
+	<public publicId="sap.ui.core.mvc" uri="./sap.ui.core.mvc.xsd" />
+	<uri name="sap.ui.core.mvc" uri="./sap.ui.core.mvc.xsd"/>
+	<public publicId="sap.ui.core.routing" uri="./sap.ui.core.routing.xsd" />
+	<uri name="sap.ui.core.routing" uri="./sap.ui.core.routing.xsd"/>
+	<public publicId="sap.ui.core.search" uri="./sap.ui.core.search.xsd" />
+	<uri name="sap.ui.core.search" uri="./sap.ui.core.search.xsd"/>
+	<public publicId="sap.ui.core.tmpl" uri="./sap.ui.core.tmpl.xsd" />
+	<uri name="sap.ui.core.tmpl" uri="./sap.ui.core.tmpl.xsd"/>
+	<public publicId="sap.ui.core.util" uri="./sap.ui.core.util.xsd" />
+	<uri name="sap.ui.core.util" uri="./sap.ui.core.util.xsd"/>
+	<public publicId="sap.ui.fl.variants" uri="./sap.ui.fl.variants.xsd" />
+	<uri name="sap.ui.fl.variants" uri="./sap.ui.fl.variants.xsd"/>
+	<public publicId="sap.ui.integration" uri="./sap.ui.integration.xsd" />
+	<uri name="sap.ui.integration" uri="./sap.ui.integration.xsd"/>
+	<public publicId="sap.ui.integration.widgets" uri="./sap.ui.integration.widgets.xsd" />
+	<uri name="sap.ui.integration.widgets" uri="./sap.ui.integration.widgets.xsd"/>
+	<public publicId="sap.ui.layout" uri="./sap.ui.layout.xsd" />
+	<uri name="sap.ui.layout" uri="./sap.ui.layout.xsd"/>
+	<public publicId="sap.ui.commons.layout" uri="./sap.ui.commons.layout.xsd" />
+	<uri name="sap.ui.commons.layout" uri="./sap.ui.commons.layout.xsd"/>
+	<public publicId="sap.ui.layout.cssgrid" uri="./sap.ui.layout.cssgrid.xsd" />
+	<uri name="sap.ui.layout.cssgrid" uri="./sap.ui.layout.cssgrid.xsd"/>
+	<public publicId="sap.ui.layout.form" uri="./sap.ui.layout.form.xsd" />
+	<uri name="sap.ui.layout.form" uri="./sap.ui.layout.form.xsd"/>
+	<public publicId="sap.ui.commons.form" uri="./sap.ui.commons.form.xsd" />
+	<uri name="sap.ui.commons.form" uri="./sap.ui.commons.form.xsd"/>
+	<public publicId="sap.ui.suite" uri="./sap.ui.suite.xsd" />
+	<uri name="sap.ui.suite" uri="./sap.ui.suite.xsd"/>
+	<public publicId="sap.ui.table.plugins" uri="./sap.ui.table.plugins.xsd" />
+	<uri name="sap.ui.table.plugins" uri="./sap.ui.table.plugins.xsd"/>
+	<public publicId="sap.ui.unified" uri="./sap.ui.unified.xsd" />
+	<uri name="sap.ui.unified" uri="./sap.ui.unified.xsd"/>
+	<public publicId="sap.m" uri="./sap.m.xsd" />
+	<uri name="sap.m" uri="./sap.m.xsd"/>
+	<public publicId="sap.f.cards" uri="./sap.f.cards.xsd" />
+	<uri name="sap.f.cards" uri="./sap.f.cards.xsd"/>
+	<public publicId="sap.f" uri="./sap.f.xsd" />
+	<uri name="sap.f" uri="./sap.f.xsd"/>
+	<public publicId="sap.f.semantic" uri="./sap.f.semantic.xsd" />
+	<uri name="sap.f.semantic" uri="./sap.f.semantic.xsd"/>
+	<public publicId="sap.m.semantic" uri="./sap.m.semantic.xsd" />
+	<uri name="sap.m.semantic" uri="./sap.m.semantic.xsd"/>
+	<public publicId="sap.m.upload" uri="./sap.m.upload.xsd" />
+	<uri name="sap.m.upload" uri="./sap.m.upload.xsd"/>
+	<public publicId="sap.tnt" uri="./sap.tnt.xsd" />
+	<uri name="sap.tnt" uri="./sap.tnt.xsd"/>
+	<public publicId="sap.ui.commons" uri="./sap.ui.commons.xsd" />
+	<uri name="sap.ui.commons" uri="./sap.ui.commons.xsd"/>
+	<public publicId="sap.ui.fl.transport" uri="./sap.ui.fl.transport.xsd" />
+	<uri name="sap.ui.fl.transport" uri="./sap.ui.fl.transport.xsd"/>
+	<public publicId="sap.ui.table" uri="./sap.ui.table.xsd" />
+	<uri name="sap.ui.table" uri="./sap.ui.table.xsd"/>
+	<public publicId="sap.ui.unified.calendar" uri="./sap.ui.unified.calendar.xsd" />
+	<uri name="sap.ui.unified.calendar" uri="./sap.ui.unified.calendar.xsd"/>
+	<public publicId="sap.ui.ux3" uri="./sap.ui.ux3.xsd" />
+	<uri name="sap.ui.ux3" uri="./sap.ui.ux3.xsd"/>
+	<public publicId="sap.uxap" uri="./sap.uxap.xsd" />
+	<uri name="sap.uxap" uri="./sap.uxap.xsd"/>
+</catalog>

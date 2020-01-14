@@ -1,0 +1,1416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="sap.m.semantic"
+	xmlns:n0="sap.m.semantic"
+	xmlns:n1="sap.ui.core"
+	xmlns:n2="sap.m"
+	>
+	<xsd:import namespace="sap.ui.core"/>
+	<xsd:import namespace="sap.m"/>
+	<xsd:element name="AddAction" type="n0:_AddActionType" substitutionGroup="n0:SemanticButton">
+		<xsd:annotation>
+			<xsd:documentation>An AddAction button has default semantic-specific properties and is eligible for aggregation content of a {@link sap.m.semantic.SemanticPage}.
+
+See {@link sap.m.semantic.MasterPage#addAction}, {@link sap.m.semantic.FullscreenPage#addAction}, {@link sap.m.semantic.DetailPage#addAction}</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="CancelAction" type="n0:_CancelActionType" substitutionGroup="n0:SemanticButton">
+		<xsd:annotation>
+			<xsd:documentation>A CancelAction button has default semantic-specific properties and is eligible for aggregation content of a {@link sap.m.semantic.SemanticPage}.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="DeleteAction" type="n0:_DeleteActionType" substitutionGroup="n0:SemanticButton">
+		<xsd:annotation>
+			<xsd:documentation>A DeleteAction button has default semantic-specific properties and is eligible for aggregation content of a {@link sap.m.semantic.SemanticPage}.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="DetailPage" type="n0:_DetailPageType" substitutionGroup="n0:ShareMenuPage">
+		<xsd:annotation>
+			<xsd:documentation>A DetailPage is a {@link sap.m.semantic.ShareMenuPage} that supports semantic content of the following types:
+
+&lt;ul&gt; &lt;li&gt;{@link sap.m.semantic.AddAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.MainAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.PositiveAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.NegativeAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.ForwardAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.EditAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.SaveAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.DeleteAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.CancelAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.FlagAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.FavoriteAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.OpenInAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.DiscussInJamAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.ShareInJamAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.SendEmailAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.SendMessageAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.PrintAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.MessagesIndicator}&lt;/li&gt; &lt;li&gt;{@link sap.m.DraftIndicator}&lt;/li&gt; &lt;/ul&gt;</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="DiscussInJamAction" type="n0:_DiscussInJamActionType" substitutionGroup="n0:SemanticButton">
+		<xsd:annotation>
+			<xsd:documentation>A DiscussInJamAction button has default semantic-specific properties and is eligible for aggregation content of a {@link sap.m.semantic.SemanticPage}.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="EditAction" type="n0:_EditActionType" substitutionGroup="n0:SemanticButton">
+		<xsd:annotation>
+			<xsd:documentation>An EditAction button has default semantic-specific properties and is eligible for aggregation content of a {@link sap.m.semantic.SemanticPage}.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="FavoriteAction" type="n0:_FavoriteActionType" substitutionGroup="n0:SemanticToggleButton">
+		<xsd:annotation>
+			<xsd:documentation>A FavoriteAction button has default semantic-specific properties and is eligible for aggregation content of a {@link sap.m.semantic.SemanticPage}.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="FilterAction" type="n0:_FilterActionType" substitutionGroup="n0:SemanticButton">
+		<xsd:annotation>
+			<xsd:documentation>A FilterAction is a {@link sap.m.Button} control enhanced with styling according to the semantics of a common "Filter" action.
+
+A FilterAction cannot be used independently but only as aggregation content of a {@link sap.m.semantic.SemanticPage}.
+
+Your app should listen to the &lt;code&gt;press&lt;/code&gt; event of {@link sap.m.semantic.FilterAction} in order to trigger the display of the filtering options.
+
+If your filtering options are a simple list of items and require single choice only, then you can consider using a {@link sap.m.semantic.FilterSelect} instead.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="FilterSelect" type="n0:_FilterSelectType" substitutionGroup="n0:SemanticSelect">
+		<xsd:annotation>
+			<xsd:documentation>A FilterSelect is a {@link sap.m.Select} control enhanced with styling according to the semantics of a common "Filter" acton.
+
+A FilterSelect cannot be used independently but only as aggregation content of a {@link sap.m.semantic.SemanticPage}.
+
+The filtering options should be added to the &lt;code&gt;items&lt;/code&gt; aggregation of {@link sap.m.semantic.FilterSelect} and will be displayed as a pop-up list with support for single-item selection. If this simple popup list is not sufficient for your use case, you can implement your own custom dialog by using {@link sap.m.semantic.FilterAction} to trigger the dialog opening.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="FlagAction" type="n0:_FlagActionType" substitutionGroup="n0:SemanticToggleButton">
+		<xsd:annotation>
+			<xsd:documentation>A FlagAction button has default semantic-specific properties and is eligible for aggregation content of a {@link sap.m.semantic.SemanticPage}.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ForwardAction" type="n0:_ForwardActionType" substitutionGroup="n0:SemanticButton">
+		<xsd:annotation>
+			<xsd:documentation>A ForwardAction button has default semantic-specific properties and is eligible for aggregation content of a {@link sap.m.semantic.SemanticPage}.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="FullscreenPage" type="n0:_FullscreenPageType" substitutionGroup="n0:ShareMenuPage">
+		<xsd:annotation>
+			<xsd:documentation>A FullscreenPage is a {@link sap.m.semantic.ShareMenuPage} that supports semantic content of the following types:
+
+&lt;ul&gt; &lt;li&gt;{@link sap.m.semantic.AddAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.MainAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.PositiveAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.NegativeAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.ForwardAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.EditAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.SaveAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.DeleteAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.CancelAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.FlagAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.FavoriteAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.OpenInAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.DiscussInJamAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.ShareInJamAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.SendEmailAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.SendMessageAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.PrintAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.MessagesIndicator}&lt;/li&gt; &lt;li&gt;{@link sap.m.DraftIndicator}&lt;/li&gt; &lt;/ul&gt;</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="GroupAction" type="n0:_GroupActionType" substitutionGroup="n0:SemanticButton">
+		<xsd:annotation>
+			<xsd:documentation>A GroupAction is a {@link sap.m.Button} control enhanced with styling according to the semantics of a common "Group" action.
+
+A GroupAction cannot be used independently but only as aggregation content of a {@link sap.m.semantic.SemanticPage}.
+
+Your app should listen to the &lt;code&gt;press&lt;/code&gt; event of {@link sap.m.semantic.GroupAction} in order to trigger the display of the grouping options.
+
+If your grouping options are a simple list of items and require single choice only, then you can consider using a {@link sap.m.semantic.GroupSelect} instead.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="GroupSelect" type="n0:_GroupSelectType" substitutionGroup="n0:SemanticSelect">
+		<xsd:annotation>
+			<xsd:documentation>A GroupSelect is a {@link sap.m.Select} control enhanced with styling according to the semantics of a common "Group" acton.
+
+A GroupSelect cannot be used independently but only as aggregation content of a {@link sap.m.semantic.SemanticPage}.
+
+The grouping options should be added to the &lt;code&gt;items&lt;/code&gt; aggregation of {@link sap.m.semantic.GroupSelect} and will be displayed as a pop-up list with support for single-item selection. If this simple popup list is not sufficient for your use case, you can implement your own custom dialog by using {@link sap.m.semantic.GroupAction} to trigger the dialog opening.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="MainAction" type="n0:_MainActionType" substitutionGroup="n0:SemanticButton">
+		<xsd:annotation>
+			<xsd:documentation>A MainAction button has default semantic-specific properties and is eligible for aggregation content of a {@link sap.m.semantic.SemanticPage}.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="MasterPage" type="n0:_MasterPageType" substitutionGroup="n0:SemanticPage">
+		<xsd:annotation>
+			<xsd:documentation>A MasterPage is a {@link sap.m.semantic.SemanticPage} that supports semantic content of the following types:
+
+&lt;ul&gt; &lt;li&gt;{@link sap.m.semantic.AddAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.MainAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.PositiveAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.NegativeAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.ForwardAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.EditAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.SaveAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.DeleteAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.CancelAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.MultiSelectAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.FlagAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.FavoriteAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.SortAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.SortSelect}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.FilterAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.FilterSelect}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.GroupAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.GroupSelect}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.MessagesIndicator}&lt;/li&gt; &lt;/ul&gt;</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="MessagesIndicator" type="n0:_MessagesIndicatorType" substitutionGroup="n0:SemanticButton">
+		<xsd:annotation>
+			<xsd:documentation>A MessagesIndicator button has default semantic-specific properties and is eligible for aggregation content of a {@link sap.m.semantic.SemanticPage}.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="MultiSelectAction" type="n0:_MultiSelectActionType" substitutionGroup="n0:SemanticToggleButton">
+		<xsd:annotation>
+			<xsd:documentation>A MultiSelectAction button has default semantic-specific properties and is eligible for aggregation content of a {@link sap.m.semantic.SemanticPage}.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="NegativeAction" type="n0:_NegativeActionType" substitutionGroup="n0:SemanticButton">
+		<xsd:annotation>
+			<xsd:documentation>A NegativeAction button has default semantic-specific properties and is eligible for aggregation content of a {@link sap.m.semantic.SemanticPage}.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="OpenInAction" type="n0:_OpenInActionType" substitutionGroup="n0:SemanticButton">
+		<xsd:annotation>
+			<xsd:documentation>An OpenInAction button has default semantic-specific properties and is eligible for aggregation content of a {@link sap.m.semantic.SemanticPage}.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="PositiveAction" type="n0:_PositiveActionType" substitutionGroup="n0:SemanticButton">
+		<xsd:annotation>
+			<xsd:documentation>A PositiveAction button has default semantic-specific properties and is eligible for aggregation content of a {@link sap.m.semantic.SemanticPage}.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="PrintAction" type="n0:_PrintActionType" substitutionGroup="n0:SemanticButton">
+		<xsd:annotation>
+			<xsd:documentation>A PrintAction button has default semantic-specific properties and is eligible for aggregation content of a {@link sap.m.semantic.SemanticPage}.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SaveAction" type="n0:_SaveActionType" substitutionGroup="n0:SemanticButton">
+		<xsd:annotation>
+			<xsd:documentation>A SaveAction button has default semantic-specific properties and is eligible for aggregation content of a {@link sap.m.semantic.SemanticPage}.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SemanticButton" type="n0:_SemanticButtonType" substitutionGroup="n0:SemanticControl">
+		<xsd:annotation>
+			<xsd:documentation>A semantic button is either a {@link sap.m.Button} or {@link sap.m.semantic.SemanticOverflowToolbarButton} , eligible for aggregation content of a {@link sap.m.semantic.SemanticPage}.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SemanticControl" type="n0:_SemanticControlType" substitutionGroup="n1:Element">
+		<xsd:annotation>
+			<xsd:documentation>A semantic control is an abstraction for either a {@link sap.m.semantic.SemanticButton} or {@link sap.m.semantic.SemanticSelect} , eligible for aggregation content of a {@link sap.m.semantic.SemanticPage}.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SemanticPage" type="n0:_SemanticPageType" substitutionGroup="n1:Control">
+		<xsd:annotation>
+			<xsd:documentation>An enhanced {@link sap.m.Page}, that can contain controls with semantic meaning, see {@link sap.m.semantic.SemanticControl}.
+
+&lt;b&gt;Note:&lt;/b&gt; This control implements the SAP Fiori 1.0 design guidelines. For SAP Fiori 2.0, see the {@link sap.f.semantic.SemanticPage}.
+
+&lt;h3&gt;Overview&lt;/h3&gt;
+
+The main functionality of the &lt;code&gt;SemanticPage&lt;/code&gt; is to predefine the placement, behavior and styles of the page elements.
+
+Content specified in the semantic aggregations will be automatically positioned in dedicated sections of the footer or the header of the page.
+
+&lt;h3&gt;Structure&lt;/h3&gt;
+
+The semantics of the content are the following: &lt;ul&gt; &lt;li&gt;Visual properties (for example, &lt;code&gt;AddAction&lt;/code&gt; will be styled as an icon button)&lt;/li&gt; &lt;li&gt;Position in the page (UX guidelines specify that some buttons should be in the header only, while others are in the footer or the "share" menu, so we do the correct positioning)&lt;/li&gt; &lt;li&gt;Sequence order (UX guidelines define a specific sequence order of semantic controls with respect to each other)&lt;/li&gt; &lt;li&gt;Default localized tooltip for icon-only buttons&lt;/li&gt; &lt;li&gt;Overflow behavior (UX guidelines define which buttons are allowed to go to the overflow of the toolbar when the screen gets narrower). For icon buttons, we ensure that the text label of the button appears when the button is in overflow, as specified by UX.&lt;/li&gt; &lt;li&gt;Screen reader support (invisible text for reading the semantic type)&lt;/li&gt; &lt;/ul&gt;
+
+In addition to the predefined semantic controls, the &lt;code&gt;SemanticPage&lt;/code&gt; can host also custom app controls. It preserves most of the API of the {@link sap.m.Page} for specifying page content.
+
+&lt;h3&gt;Usage&lt;/h3&gt;
+
+The app developer only has to specify the action type, and the required styling and positioning are automatically added.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SemanticSelect" type="n0:_SemanticSelectType" substitutionGroup="n0:SemanticControl">
+		<xsd:annotation>
+			<xsd:documentation>A semantic select is a {@link sap.m.Select} eligible for aggregation content of a {@link sap.m.semantic.SemanticPage}.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SemanticToggleButton" type="n0:_SemanticToggleButtonType" substitutionGroup="n0:SemanticButton">
+		<xsd:annotation>
+			<xsd:documentation>A SemanticToggleButton is eligible for aggregation content of a {@link sap.m.semantic.SemanticPage}.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SendEmailAction" type="n0:_SendEmailActionType" substitutionGroup="n0:SemanticButton">
+		<xsd:annotation>
+			<xsd:documentation>A SendEmailAction button has default semantic-specific properties and is eligible for aggregation content of a {@link sap.m.semantic.SemanticPage}.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SendMessageAction" type="n0:_SendMessageActionType" substitutionGroup="n0:SemanticButton">
+		<xsd:annotation>
+			<xsd:documentation>A SendMessageAction button has default semantic-specific properties and is eligible for aggregation content of a {@link sap.m.semantic.SemanticPage}.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ShareInJamAction" type="n0:_ShareInJamActionType" substitutionGroup="n0:SemanticButton">
+		<xsd:annotation>
+			<xsd:documentation>A ShareInJamAction button has default semantic-specific properties and is eligible for aggregation content of a {@link sap.m.semantic.SemanticPage}.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ShareMenuPage" type="n0:_ShareMenuPageType" substitutionGroup="n0:SemanticPage">
+		<xsd:annotation>
+			<xsd:documentation>A ShareMenuPage is a {@link sap.m.semantic.SemanticPage} with support for "share" menu in the footer.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SortAction" type="n0:_SortActionType" substitutionGroup="n0:SemanticButton">
+		<xsd:annotation>
+			<xsd:documentation>A SortAction is a {@link sap.m.Button} control enhanced with styling according to the semantics of a common "Sort" action.
+
+A SortAction cannot be used independently but only as aggregation content of a {@link sap.m.semantic.SemanticPage}.
+
+Your app should listen to the &lt;code&gt;press&lt;/code&gt; event of {@link sap.m.semantic.SortAction} in order to trigger the display of the sorting options.
+
+If your sorting options are a simple list of items and require single choice only, then you can consider using a {@link sap.m.semantic.SortSelect} instead.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SortSelect" type="n0:_SortSelectType" substitutionGroup="n0:SemanticSelect">
+		<xsd:annotation>
+			<xsd:documentation>A SortSelect is a {@link sap.m.Select} control enhanced with styling according to the semantics of a common "Sort" acton.
+
+A SortSelect cannot be used independently but only as aggregation content of a {@link sap.m.semantic.SemanticPage}.
+
+The sorting options should be added to the &lt;code&gt;items&lt;/code&gt; aggregation of {@link sap.m.semantic.SortSelect} and will be displayed as a pop-up list with support for single-item selection. If this simple popup list is not sufficient for your use case, you can implement your own custom dialog by using {@link sap.m.semantic.SortAction} to trigger the dialog opening.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!--type definition for UIElement 'sap.m.semantic.AddAction'-->
+	<xsd:complexType name="_AddActionType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_SemanticButtonType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.m.semantic.CancelAction'-->
+	<xsd:complexType name="_CancelActionType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_SemanticButtonType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.m.semantic.DeleteAction'-->
+	<xsd:complexType name="_DeleteActionType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_SemanticButtonType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.m.semantic.DetailPage'-->
+	<xsd:complexType name="_DetailPageType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_ShareMenuPageType">
+				<xsd:sequence>
+					<xsd:element name="addAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Add action</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:AddAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="mainAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Main action</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:MainAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="positiveAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Positive action</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:PositiveAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="negativeAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Negative action</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:NegativeAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="forwardAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Negative action</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:ForwardAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="editAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Edit action</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:EditAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="saveAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Save action</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:SaveAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="deleteAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Delete action</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:DeleteAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="cancelAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Cancel action</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:CancelAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="flagAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Flag action</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:FlagAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="favoriteAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Favorite action</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:FavoriteAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="openInAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>OpenIn action</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:OpenInAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="discussInJamAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>DiscussInJam action</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:DiscussInJamAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="shareInJamAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>ShareInJam action</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:ShareInJamAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="sendEmailAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>SendEmail action</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:SendEmailAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="sendMessageAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>SendMessage action</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:SendMessageAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="printAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Print action</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:PrintAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="messagesIndicator" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>MessagesIndicator</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:MessagesIndicator"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="saveAsTileAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>SaveAsTile button</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n2:Button"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="pagingAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Paging action</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n2:PagingButton"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="draftIndicator" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>DraftIndicator</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n2:DraftIndicator"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.m.semantic.DiscussInJamAction'-->
+	<xsd:complexType name="_DiscussInJamActionType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_SemanticButtonType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.m.semantic.EditAction'-->
+	<xsd:complexType name="_EditActionType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_SemanticButtonType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.m.semantic.FavoriteAction'-->
+	<xsd:complexType name="_FavoriteActionType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_SemanticToggleButtonType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.m.semantic.FilterAction'-->
+	<xsd:complexType name="_FilterActionType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_SemanticButtonType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.m.semantic.FilterSelect'-->
+	<xsd:complexType name="_FilterSelectType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_SemanticSelectType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.m.semantic.FlagAction'-->
+	<xsd:complexType name="_FlagActionType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_SemanticToggleButtonType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.m.semantic.ForwardAction'-->
+	<xsd:complexType name="_ForwardActionType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_SemanticButtonType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.m.semantic.FullscreenPage'-->
+	<xsd:complexType name="_FullscreenPageType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_ShareMenuPageType">
+				<xsd:sequence>
+					<xsd:element name="addAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Add action</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:AddAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="mainAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Main action</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:MainAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="positiveAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Positive action</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:PositiveAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="negativeAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Negative action</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:NegativeAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="forwardAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Negative action</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:ForwardAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="editAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Edit action</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:EditAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="saveAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Save action</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:SaveAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="deleteAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Delete action</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:DeleteAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="cancelAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Cancel action</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:CancelAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="flagAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Flag action</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:FlagAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="favoriteAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Favorite action</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:FavoriteAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="openInAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>OpenIn action</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:OpenInAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="discussInJamAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>DiscussInJam action</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:DiscussInJamAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="shareInJamAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>ShareInJam action</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:ShareInJamAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="sendEmailAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>SendEmail action</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:SendEmailAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="sendMessageAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>SendMessage action</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:SendMessageAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="printAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Print action</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:PrintAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="messagesIndicator" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>MessagesIndicator</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:MessagesIndicator"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="saveAsTileAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>SaveAsTile button</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n2:Button"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="pagingAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Paging action</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n2:PagingButton"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="draftIndicator" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>DraftIndicator</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n2:DraftIndicator"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.m.semantic.GroupAction'-->
+	<xsd:complexType name="_GroupActionType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_SemanticButtonType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.m.semantic.GroupSelect'-->
+	<xsd:complexType name="_GroupSelectType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_SemanticSelectType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.m.semantic.MainAction'-->
+	<xsd:complexType name="_MainActionType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_SemanticButtonType">
+				<xsd:attribute name="text" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Button text</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.m.semantic.MasterPage'-->
+	<xsd:complexType name="_MasterPageType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_SemanticPageType">
+				<xsd:sequence>
+					<xsd:element name="addAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Add action</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:AddAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="mainAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Main action</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:MainAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="positiveAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Positive action</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:PositiveAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="negativeAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Negative action</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:NegativeAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="multiSelectAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>MultiSelect action</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:MultiSelectAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="forwardAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Forward action</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:ForwardAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="editAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Edit action</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:EditAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="saveAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Save action</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:SaveAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="deleteAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Delete action</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:DeleteAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="cancelAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Cancel action</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:CancelAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="sort" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Sort action</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n1:Control"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="filter" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Filter action</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n1:Control"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="group" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Group action</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n1:Control"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="messagesIndicator" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>MessagesIndicator</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:MessagesIndicator"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.m.semantic.MessagesIndicator'-->
+	<xsd:complexType name="_MessagesIndicatorType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_SemanticButtonType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.m.semantic.MultiSelectAction'-->
+	<xsd:complexType name="_MultiSelectActionType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_SemanticToggleButtonType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.m.semantic.NegativeAction'-->
+	<xsd:complexType name="_NegativeActionType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_SemanticButtonType">
+				<xsd:attribute name="text" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Button text</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.m.semantic.OpenInAction'-->
+	<xsd:complexType name="_OpenInActionType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_SemanticButtonType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.m.semantic.PositiveAction'-->
+	<xsd:complexType name="_PositiveActionType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_SemanticButtonType">
+				<xsd:attribute name="text" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Button text</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.m.semantic.PrintAction'-->
+	<xsd:complexType name="_PrintActionType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_SemanticButtonType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.m.semantic.SaveAction'-->
+	<xsd:complexType name="_SaveActionType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_SemanticButtonType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.m.semantic.SemanticButton'-->
+	<xsd:complexType name="_SemanticButtonType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_SemanticControlType">
+				<xsd:attribute name="enabled" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>See {@link sap.m.Button#enabled}</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="press" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>See {@link sap.m.Button#event:press}</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.m.semantic.SemanticControl'-->
+	<xsd:complexType name="_SemanticControlType">
+		<xsd:complexContent>
+			<xsd:extension base="n1:_ElementType">
+				<xsd:sequence/>
+				<xsd:attribute name="visible" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>See {@link sap.ui.core.Control#visible}</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.m.semantic.SemanticPage'-->
+	<xsd:complexType name="_SemanticPageType">
+		<xsd:complexContent>
+			<xsd:extension base="n1:_ControlType">
+				<xsd:sequence>
+					<!-- default aggregation 'content'-->
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="n1:Control"/>
+						<xsd:element ref="n1:Fragment"/>
+						<xsd:any processContents="lax" namespace="http://www.w3.org/1999/xhtml" />
+					</xsd:choice>
+					<xsd:element name="subHeader" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>See {@link sap.m.Page#subHeader}</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n1:Control"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="content" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>See {@link sap.m.Page#content}</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0" maxOccurs="unbounded">
+									<xsd:element ref="n1:Control"/>
+									<xsd:element ref="n1:Fragment"/>
+									<xsd:any processContents="lax" namespace="http://www.w3.org/1999/xhtml"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="customHeaderContent" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Custom header buttons</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0" maxOccurs="unbounded">
+									<xsd:element ref="n2:Button"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="customFooterContent" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Custom footer buttons</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0" maxOccurs="unbounded">
+									<xsd:element ref="n2:Button"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="landmarkInfo" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Accessible landmark settings to be applied to the containers of the &lt;code&gt;sap.m.Page&lt;/code&gt; control.
+
+If not set, no landmarks will be written.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n2:PageAccessibleLandmarkInfo"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+				<xsd:attribute name="title" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>See {@link sap.m.Page#title}</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="titleLevel" type="n1:_TitleLevelType">
+					<xsd:annotation>
+						<xsd:documentation>See {@link sap.m.Page#titleLevel}</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="showNavButton" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>See {@link sap.m.Page#showNavButton}</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="showSubHeader" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>See {@link sap.m.Page#showSubHeader}</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="enableScrolling" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>See {@link sap.m.Page#enableScrolling}</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="showFooter" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>Hides or shows the page footer</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="floatingFooter" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>Determines whether the floating footer behavior is enabled. If set to &lt;code&gt;true&lt;/code&gt;, the content is visible when it's underneath the footer.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="semanticRuleSet" type="n0:_SemanticRuleSetTypeType">
+					<xsd:annotation>
+						<xsd:documentation>Declares the type of semantic ruleset that will govern the styling and positioning of semantic content.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="backgroundDesign" type="n2:_PageBackgroundDesignType">
+					<xsd:annotation>
+						<xsd:documentation>Determines the backgound color of the page. For more information, see {@link sap.m.Page#backgroundDesign}.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="navButtonPress" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>See {@link sap.m.Page#navButtonPress}</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.m.semantic.SemanticSelect'-->
+	<xsd:complexType name="_SemanticSelectType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_SemanticControlType">
+				<xsd:sequence>
+					<!-- default aggregation 'items'-->
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="n1:Item"/>
+						<xsd:element ref="n1:Fragment"/>
+					</xsd:choice>
+					<xsd:element name="items" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>See {@link sap.m.Select#getItems}</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0" maxOccurs="unbounded">
+									<xsd:element ref="n1:Item"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+				<xsd:attribute name="enabled" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>See {@link sap.m.Select#getEnabled}</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="selectedKey" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>See {@link sap.m.Select#getSelectedKey}</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="selectedItem" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>See {@link sap.m.Select#getSelectedItem}</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="change" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>See {@link sap.m.Select#event:change}</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.m.semantic.SemanticToggleButton'-->
+	<xsd:complexType name="_SemanticToggleButtonType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_SemanticButtonType">
+				<xsd:attribute name="pressed" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>The property is “true” when the control is toggled. The default state of this property is "false".</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.m.semantic.SendEmailAction'-->
+	<xsd:complexType name="_SendEmailActionType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_SemanticButtonType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.m.semantic.SendMessageAction'-->
+	<xsd:complexType name="_SendMessageActionType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_SemanticButtonType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.m.semantic.ShareInJamAction'-->
+	<xsd:complexType name="_ShareInJamActionType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_SemanticButtonType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.m.semantic.ShareMenuPage'-->
+	<xsd:complexType name="_ShareMenuPageType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_SemanticPageType">
+				<xsd:sequence>
+					<xsd:element name="customShareMenuContent" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Custom share menu buttons</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0" maxOccurs="unbounded">
+									<xsd:element ref="n2:Button"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.m.semantic.SortAction'-->
+	<xsd:complexType name="_SortActionType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_SemanticButtonType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.m.semantic.SortSelect'-->
+	<xsd:complexType name="_SortSelectType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_SemanticSelectType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:simpleType name="_SemanticRuleSetTypeType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Classic">
+				<xsd:annotation>
+					<xsd:documentation>The default ruleset type, for which the Share Menu is always in the footer of the page.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Optimized">
+				<xsd:annotation>
+					<xsd:documentation>Offers an optimized user experience, with displaying the Share Menu in the header, rather than the footer, for Fullscreen mode.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

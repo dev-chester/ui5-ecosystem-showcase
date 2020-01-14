@@ -1,0 +1,623 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="sap.ui.unified.calendar"
+	xmlns:n0="sap.ui.unified.calendar"
+	xmlns:n1="sap.ui.core"
+	xmlns:n2="sap.ui.unified"
+	>
+	<xsd:import namespace="sap.ui.core"/>
+	<xsd:import namespace="sap.ui.unified"/>
+	<xsd:element name="DatesRow" type="n0:_DatesRowType" substitutionGroup="n0:Month">
+		<xsd:annotation>
+			<xsd:documentation>renders a row of days with ItemNavigation This is used inside the calendar. Not for stand alone usage If used inside the calendar the properties and aggregation are directly taken from the parent (To not duplicate and sync DateRanges and so on...)</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="Header" type="n0:_HeaderType" substitutionGroup="n1:Control">
+		<xsd:annotation>
+			<xsd:documentation>renders a calendar header
+
+The calendar header consists of 3 buttons where the text can be set and a previous and a next button. In the normal calendar the first button contains the displayed day, the second button the displayed month and the third button the displayed year.
+
+&lt;b&gt;Note:&lt;/b&gt; This is used inside the calendar. Not for standalone usage</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="Month" type="n0:_MonthType" substitutionGroup="n1:Control">
+		<xsd:annotation>
+			<xsd:documentation>renders a month with ItemNavigation This is used inside the calendar. Not for stand alone usage If used inside the calendar the properties and aggregation are directly taken from the parent (To not duplicate and sync DateRanges and so on...)</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="MonthPicker" type="n0:_MonthPickerType" substitutionGroup="n1:Control">
+		<xsd:annotation>
+			<xsd:documentation>renders a MonthPicker with ItemNavigation This is used inside the calendar. Not for stand alone usage</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="MonthsRow" type="n0:_MonthsRowType" substitutionGroup="n1:Control">
+		<xsd:annotation>
+			<xsd:documentation>Renders a row of months using ItemNavigation. There is no paging or navigation outside the rendered area implemented. This is done inside the CalendarMonthInterval. If used inside the CalendarMonthInterval the properties and aggregation are directly taken from the parent (to not duplicate and synchronize DateRanges and so on...).
+
+The MontsRow works with JavaScript Date objects, but only the month and the year are used to display and interact. As representation for a month, the 1st of the month will always be returned in the API.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="TimesRow" type="n0:_TimesRowType" substitutionGroup="n1:Control">
+		<xsd:annotation>
+			<xsd:documentation>Renders a row of time items using ItemNavigation. There is no paging or navigation outside the rendered area implemented. This is done inside the CalendarTimeInterval. If used inside the CalendarTimeInterval the properties and aggregation are directly taken from the parent (to not duplicate and synchronize DateRanges and so on...).
+
+The TimesRow works with JavaScript Date objects.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="YearPicker" type="n0:_YearPickerType" substitutionGroup="n1:Control">
+		<xsd:annotation>
+			<xsd:documentation>renders a YearPicker with ItemNavigation This is used inside the calendar. Not for stand alone usage. As in all date-time controls, all pubic JS Date objects that are given (e.g. &lt;code&gt;setDate()&lt;/code&gt;) or read (e.g. &lt;code&gt;getFirstRenderedDate&lt;/code&gt;) with values which are considered as date objects in browser(local) timezone.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!--type definition for UIElement 'sap.ui.unified.calendar.DatesRow'-->
+	<xsd:complexType name="_DatesRowType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_MonthType">
+				<xsd:attribute name="startDate" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Start date of the row If in rendering phase the date property is not in the range startDate + days, it is set to the start date So after setting the start date the date should be set to be in the range of the start date</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="days" type="xsd:int">
+					<xsd:annotation>
+						<xsd:documentation>number of days displayed</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="showDayNamesLine" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>If set the day names are shown in a separate line. If not set the day names are shown inside the single days.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.ui.unified.calendar.Header'-->
+	<xsd:complexType name="_HeaderType">
+		<xsd:complexContent>
+			<xsd:extension base="n1:_ControlType">
+				<xsd:attribute name="textButton0" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Text of the first button (normally day)</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="additionalTextButton0" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Additional text of the first button (normally day)</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="ariaLabelButton0" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>aria-label of the first button (normally day)</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="visibleButton0" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>If set, the first button will be displayed
+
+&lt;b&gt;Note:&lt;/b&gt; The default is set to false to be compatible to older versions</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="textButton1" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Text of the second button (normally month)</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="additionalTextButton1" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Additional text of the second button (normally month)</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="ariaLabelButton1" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>aria-label of the second button (normally month)</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="visibleButton1" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>If set, the second button will be displayed</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="textButton2" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Text of the third button (normally year)</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="additionalTextButton2" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Additional text of the third button (normally year)</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="ariaLabelButton2" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>aria-label of the third button (normally year)</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="visibleButton2" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>If set, the third button will be displayed</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="enabledPrevious" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>Enables the previous button</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="enabledNext" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>Enables the Next button</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="pressPrevious" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Previous button pressed</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="pressNext" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Next button pressed</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="pressButton0" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>First button pressed (normally day)</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="pressButton1" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Second button pressed (normally month)</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="pressButton2" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Third button pressed (normally year)</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.ui.unified.calendar.Month'-->
+	<xsd:complexType name="_MonthType">
+		<xsd:complexContent>
+			<xsd:extension base="n1:_ControlType">
+				<xsd:sequence>
+					<xsd:element name="selectedDates" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Date Ranges for selected dates of the DatePicker</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0" maxOccurs="unbounded">
+									<xsd:element ref="n2:DateRange"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="specialDates" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>&lt;code&gt;DateRange&lt;/code&gt; with type to visualize special days in the Calendar.
+
+&lt;b&gt;Note:&lt;/b&gt; If one day is assigned to more than one DateTypeRange, only the first one will be used. The only exception is when one of the types is &lt;code&gt;NonWorking&lt;/code&gt;, then you can have both &lt;code&gt;NonWorking&lt;/code&gt; and the other type. For example, you can have &lt;code&gt;NonWorking&lt;/code&gt; + &lt;code&gt;Type01&lt;/code&gt; but you can't have &lt;code&gt;Type01&lt;/code&gt; + &lt;code&gt;Type02&lt;/code&gt;.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0" maxOccurs="unbounded">
+									<xsd:element ref="n2:DateTypeRange"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="disabledDates" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Date Ranges for disabled dates</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0" maxOccurs="unbounded">
+									<xsd:element ref="n2:DateRange"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+				<xsd:attribute name="date" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>A date as JavaScript Date object. The month including this date is rendered and this date is focused initially (if no other focus is set).</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="intervalSelection" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>If set, interval selection is allowed</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="singleSelection" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>If set, only a single date or interval, if intervalSelection is enabled, can be selected</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="showHeader" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>If set, a header with the month name is shown</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="firstDayOfWeek" type="xsd:int">
+					<xsd:annotation>
+						<xsd:documentation>If set, the first day of the displayed week is this day. Valid values are 0 to 6. If not a valid value is set, the default of the used locale is used.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="nonWorkingDays" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>If set, the provided weekdays are displayed as non-working days. Valid values inside the array are 0 to 6. If not set, the weekend defined in the locale settings is displayed as non-working days.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="primaryCalendarType" type="n1:_CalendarTypeType">
+					<xsd:annotation>
+						<xsd:documentation>If set, the calendar type is used for display. If not set, the calendar type of the global configuration is used.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="secondaryCalendarType" type="n1:_CalendarTypeType">
+					<xsd:annotation>
+						<xsd:documentation>If set, the days are also displayed in this calendar type If not set, the dates are only displayed in the primary calendar type</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="width" type="n1:_CSSSizeType">
+					<xsd:annotation>
+						<xsd:documentation>Width of Month</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="showWeekNumbers" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>Determines whether the week numbers in the months are displayed.
+
+&lt;b&gt;Note:&lt;/b&gt; For Islamic calendars, the week numbers are not displayed regardless of what is set to this property.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="ariaLabelledBy" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Association to controls / ids which label this control (see WAI-ARIA attribute aria-labelledby).</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="legend" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Association to the &lt;code&gt;CalendarLegend&lt;/code&gt; explaining the colors of the &lt;code&gt;specialDates&lt;/code&gt;.
+
+&lt;b&gt;Note&lt;/b&gt; The legend does not have to be rendered but must exist, and all required types must be assigned.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="select" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Date selection changed</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="focus" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Date focus changed</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="weekNumberSelect" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Fired when a week number selection is changed. By default, choosing the week number will select the corresponding week. If the week has already been selected, choosing the week number will deselect it.
+
+The default behavior can be prevented using the &lt;code&gt;preventDefault&lt;/code&gt; method.
+
+&lt;b&gt;Note:&lt;/b&gt; Works for Gregorian calendars only and when &lt;code&gt;intervalSelection&lt;/code&gt; is set to &lt;code&gt;true&lt;/code&gt;.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.ui.unified.calendar.MonthPicker'-->
+	<xsd:complexType name="_MonthPickerType">
+		<xsd:complexContent>
+			<xsd:extension base="n1:_ControlType">
+				<xsd:sequence>
+					<xsd:element name="selectedDates" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Date Ranges for selected dates of the MonthPicker</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0" maxOccurs="unbounded">
+									<xsd:element ref="n2:DateRange"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+				<xsd:attribute name="month" type="xsd:int">
+					<xsd:annotation>
+						<xsd:documentation>The month is initial focused and selected The value must be between 0 and 11</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="months" type="xsd:int">
+					<xsd:annotation>
+						<xsd:documentation>number of displayed months The value must be between 1 and 12</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="intervalSelection" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>If set, interval selection is allowed</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="columns" type="xsd:int">
+					<xsd:annotation>
+						<xsd:documentation>number of months in each row The value must be between 0 and 12 (0 means just to have all months in one row, independent of the number)</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="primaryCalendarType" type="n1:_CalendarTypeType">
+					<xsd:annotation>
+						<xsd:documentation>If set, the calendar type is used for display. If not set, the calendar type of the global configuration is used.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="select" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Month selection changed</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="pageChange" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>If less than 12 months are displayed the &lt;code&gt;pageChange&lt;/code&gt; event is fired if the displayed months are changed by user navigation.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.ui.unified.calendar.MonthsRow'-->
+	<xsd:complexType name="_MonthsRowType">
+		<xsd:complexContent>
+			<xsd:extension base="n1:_ControlType">
+				<xsd:sequence>
+					<xsd:element name="selectedDates" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Date ranges for selected dates. If &lt;code&gt;singleSelection&lt;/code&gt; is set, only the first entry is used.
+
+&lt;b&gt;Note:&lt;/b&gt; Even if only one day is selected, the whole corresponding month is selected.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0" maxOccurs="unbounded">
+									<xsd:element ref="n2:DateRange"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="specialDates" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Date ranges with type to visualize special months in the row. If one day is assigned to more than one type, only the first one will be used.
+
+&lt;b&gt;Note:&lt;/b&gt; Even if only one day is set as a special day, the whole corresponding month is displayed in this way.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0" maxOccurs="unbounded">
+									<xsd:element ref="n2:DateTypeRange"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+				<xsd:attribute name="date" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>A date as JavaScript Date object. The month including this date is rendered and this date is focused initially (if no other focus is set). If the date property is not in the range &lt;code&gt;startDate&lt;/code&gt; + &lt;code&gt;months&lt;/code&gt; in the rendering phase, it is set to the &lt;code&gt;startDate&lt;/code&gt;. So after setting the &lt;code&gt;startDate&lt;/code&gt; the date should be set to be in the visible range.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="startDate" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Start date, as JavaScript Date object, of the row. The month of this date is the first month of the displayed row.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="months" type="xsd:int">
+					<xsd:annotation>
+						<xsd:documentation>Number of months displayed</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="intervalSelection" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>If set, interval selection is allowed</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="singleSelection" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>If set, only a single month or interval, if intervalSelection is enabled, can be selected
+
+&lt;b&gt;Note:&lt;/b&gt; Selection of multiple intervals is not supported in the current version.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="showHeader" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>If set, a header with the years is shown to visualize what month belongs to what year.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="ariaLabelledBy" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Association to controls / IDs which label this control (see WAI-ARIA attribute aria-labelledby).</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="legend" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Association to the &lt;code&gt;CalendarLegend&lt;/code&gt; explaining the colors of the &lt;code&gt;specialDates&lt;/code&gt;.
+
+&lt;b&gt;Note&lt;/b&gt; The legend does not have to be rendered but must exist, and all required types must be assigned.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="select" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Month selection changed</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="focus" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Month focus changed</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.ui.unified.calendar.TimesRow'-->
+	<xsd:complexType name="_TimesRowType">
+		<xsd:complexContent>
+			<xsd:extension base="n1:_ControlType">
+				<xsd:sequence>
+					<xsd:element name="selectedDates" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Date ranges for selected dates. If &lt;code&gt;singleSelection&lt;/code&gt; is set, only the first entry is used.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0" maxOccurs="unbounded">
+									<xsd:element ref="n2:DateRange"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="specialDates" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Date ranges with type to visualize special item in the row. If one day is assigned to more than one type, only the first one will be used.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0" maxOccurs="unbounded">
+									<xsd:element ref="n2:DateTypeRange"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+				<xsd:attribute name="date" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>A date as JavaScript Date object. The month including this date is rendered and this date is focused initially (if no other focus is set). If the date property is not in the range &lt;code&gt;startDate&lt;/code&gt; + &lt;code&gt;items&lt;/code&gt; in the rendering phase, it is set to the &lt;code&gt;startDate&lt;/code&gt;. So after setting the &lt;code&gt;startDate&lt;/code&gt; the date should be set to be in the visible range.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="startDate" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Start date, as JavaScript Date object, of the row.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="items" type="xsd:int">
+					<xsd:annotation>
+						<xsd:documentation>Number of time items displayed</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="intervalMinutes" type="xsd:int">
+					<xsd:annotation>
+						<xsd:documentation>Size of on time interval in minutes, default is 60 minutes.
+
+&lt;b&gt;Note:&lt;/b&gt; the start of the interval calculation is always &lt;code&gt;startDat&lt;/code&gt; at 00:00.
+
+An interval longer than 720 minutes is not allowed. Please use the &lt;code&gt;DatesRow&lt;/code&gt; instead.
+
+A day must be divisible by this interval size. One interval must not include more than one day.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="intervalSelection" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>If set, interval selection is allowed</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="singleSelection" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>If set, only a single month or interval, if intervalSelection is enabled, can be selected
+
+&lt;b&gt;Note:&lt;/b&gt; Selection of multiple intervals is not supported in the current version.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="showHeader" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>If set, a header with the years is shown to visualize what month belongs to what year.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="ariaLabelledBy" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Association to controls / IDs which label this control (see WAI-ARIA attribute aria-labelledby).</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="legend" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Association to the &lt;code&gt;CalendarLegend&lt;/code&gt; explaining the colors of the &lt;code&gt;specialDates&lt;/code&gt;.
+
+&lt;b&gt;Note&lt;/b&gt; The legend does not have to be rendered but must exist, and all required types must be assigned.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="select" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Time selection changed</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="focus" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Time focus changed</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.ui.unified.calendar.YearPicker'-->
+	<xsd:complexType name="_YearPickerType">
+		<xsd:complexContent>
+			<xsd:extension base="n1:_ControlType">
+				<xsd:sequence>
+					<xsd:element name="selectedDates" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Date Ranges for selected dates of the YearPicker</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0" maxOccurs="unbounded">
+									<xsd:element ref="n2:DateRange"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+				<xsd:attribute name="year" type="xsd:int">
+					<xsd:annotation>
+						<xsd:documentation>The year is initial focused and selected The value must be between 0 and 9999</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="years" type="xsd:int">
+					<xsd:annotation>
+						<xsd:documentation>number of displayed years</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="intervalSelection" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>If set, interval selection is allowed</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="columns" type="xsd:int">
+					<xsd:annotation>
+						<xsd:documentation>number of years in each row 0 means just to have all years in one row, independent of the number</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="date" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Date as JavaScript Date object. For this date a &lt;code&gt;YearPicker&lt;/code&gt; is rendered. If a Year is selected the date is updated with the start date of the selected year (depending on the calendar type).</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="primaryCalendarType" type="n1:_CalendarTypeType">
+					<xsd:annotation>
+						<xsd:documentation>If set, the calendar type is used for display. If not set, the calendar type of the global configuration is used.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="select" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Month selection changed</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="pageChange" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>The &lt;code&gt;pageChange&lt;/code&gt; event is fired if the displayed years are changed by user navigation.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+</xsd:schema>

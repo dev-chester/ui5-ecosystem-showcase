@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="sap.ui.integration"
+	>
+	<xsd:simpleType name="_CardActionTypeType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Navigation">
+				<xsd:annotation>
+					<xsd:documentation>Used for navigation actions</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="_CardDataModeType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Active">
+				<xsd:annotation>
+					<xsd:documentation>When in this mode, the card can make requests.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Inactive">
+				<xsd:annotation>
+					<xsd:documentation>When in this mode, the card cannot make requests.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

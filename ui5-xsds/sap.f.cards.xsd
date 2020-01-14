@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="sap.f.cards"
+	xmlns:n0="sap.f.cards"
+	xmlns:n1="sap.ui.core"
+	xmlns:n2="sap.m"
+	>
+	<xsd:import namespace="sap.ui.core"/>
+	<xsd:import namespace="sap.m"/>
+	<xsd:element name="Header" type="n0:_HeaderType" substitutionGroup="n1:Control">
+		<xsd:annotation>
+			<xsd:documentation>Displays general information in the header of the {@link sap.f.Card}.
+
+You can configure the title, subtitle, status text and icon, using the provided properties.
+
+&lt;b&gt;Notes:&lt;/b&gt; &lt;ul&gt; &lt;li&gt;You should always set a title.&lt;/li&gt; &lt;li&gt;To show a KPI or any numeric information, use {@link sap.f.cards.NumericHeader} instead.&lt;/li&gt; &lt;ul&gt;</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="NumericHeader" type="n0:_NumericHeaderType" substitutionGroup="n1:Control">
+		<xsd:annotation>
+			<xsd:documentation>Displays general information in the header of the {@link sap.f.Card} and allows the configuration of a numeric value visualization..
+
+You can configure the title, subtitle, status text and icon, using the provided properties. To add more side number indicators, use the &lt;code&gt;sideIndicators&lt;/code&gt; aggregation.
+
+&lt;b&gt;Notes:&lt;/b&gt; &lt;ul&gt; &lt;li&gt;You should always set a title.&lt;/li&gt; &lt;li&gt;You should always have a maximum of two side indicators.&lt;/li&gt; &lt;li&gt;To show only basic information, use {@link sap.f.cards.Header Header} instead.&lt;/li&gt; &lt;/ul&gt;</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="NumericSideIndicator" type="n0:_NumericSideIndicatorType" substitutionGroup="n1:Control">
+		<xsd:annotation>
+			<xsd:documentation>Holds a set of side indicator attributes used in the {@link sap.f.cards.NumericHeader} control.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!--type definition for UIElement 'sap.f.cards.Header'-->
+	<xsd:complexType name="_HeaderType">
+		<xsd:complexContent>
+			<xsd:extension base="n1:_ControlType">
+				<xsd:sequence/>
+				<xsd:attribute name="title" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Defines the title.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="subtitle" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Defines the subtitle.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="statusText" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Defines the status text.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="iconDisplayShape" type="n2:_AvatarShapeType">
+					<xsd:annotation>
+						<xsd:documentation>Defines the shape of the icon.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="iconSrc" type="n1:_URIType">
+					<xsd:annotation>
+						<xsd:documentation>Defines the icon source.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="iconInitials" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Defines the initials of the icon.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="press" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Fires when the user presses the control.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.f.cards.NumericHeader'-->
+	<xsd:complexType name="_NumericHeaderType">
+		<xsd:complexContent>
+			<xsd:extension base="n1:_ControlType">
+				<xsd:sequence>
+					<xsd:element name="sideIndicators" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Additional side number indicators. For example "Deviation" and "Target". Not more than two side indicators should be used.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0" maxOccurs="unbounded">
+									<xsd:element ref="n0:NumericSideIndicator"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+				<xsd:attribute name="title" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>The title of the card</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="subtitle" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>The subtitle of the card</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="statusText" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Defines the status text.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="unitOfMeasurement" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>General unit of measurement for the header. Displayed as side information to the subtitle.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="number" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>The numeric value of the main number indicator. If the value contains more than five characters, only the first five are displayed. Without rounding the number.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="scale" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Defines the unit of measurement (scaling prefix) for the main indicator. Financial characters can be used for currencies and counters. The International System of Units (SI) prefixes can be used. If the unit contains more than three characters, only the first three characters are displayed.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="trend" type="n2:_DeviationIndicatorType">
+					<xsd:annotation>
+						<xsd:documentation>The direction of the trend arrow. Shows deviation for the value of the main number indicator.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="state" type="n2:_ValueColorType">
+					<xsd:annotation>
+						<xsd:documentation>The semantic color which represents the state of the main number indicator.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="details" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Additional text which adds more details to what is shown in the numeric header.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="press" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Fires when the user presses the control.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.f.cards.NumericSideIndicator'-->
+	<xsd:complexType name="_NumericSideIndicatorType">
+		<xsd:complexContent>
+			<xsd:extension base="n1:_ControlType">
+				<xsd:sequence/>
+				<xsd:attribute name="title" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>The title of the indicator</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="number" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>The numeric value</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="unit" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Defines the unit of measurement (scaling prefix) for the numeric value</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:simpleType name="_HeaderPositionType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Bottom">
+				<xsd:annotation>
+					<xsd:documentation>The Header is under the content.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Top">
+				<xsd:annotation>
+					<xsd:documentation>The Header is over the content.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

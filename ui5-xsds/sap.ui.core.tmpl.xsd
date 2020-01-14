@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="sap.ui.core.tmpl"
+	xmlns:n0="sap.ui.core.tmpl"
+	xmlns:n1="sap.ui.core"
+	>
+	<xsd:import namespace="sap.ui.core"/>
+	<xsd:element name="DOMAttribute" type="n0:_DOMAttributeType" substitutionGroup="n1:Element">
+		<xsd:annotation>
+			<xsd:documentation>Represents a DOM attribute of a DOM element.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="DOMElement" type="n0:_DOMElementType" substitutionGroup="n1:Control">
+		<xsd:annotation>
+			<xsd:documentation>Represents a DOM element. It allows to use databinding for the properties and nested DOM attributes.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="Template" type="n0:_TemplateType">
+		<xsd:annotation>
+			<xsd:documentation>Base Class for Template.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="TemplateControl" type="n0:_TemplateControlType" substitutionGroup="n1:Control">
+		<xsd:annotation>
+			<xsd:documentation>This is the base class for all template controls. Template controls are declared based on templates.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!--type definition for UIElement 'sap.ui.core.tmpl.DOMAttribute'-->
+	<xsd:complexType name="_DOMAttributeType">
+		<xsd:complexContent>
+			<xsd:extension base="n1:_ElementType">
+				<xsd:attribute name="name" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Name of the DOM attribute</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="value" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Value of the DOM attribute</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.ui.core.tmpl.DOMElement'-->
+	<xsd:complexType name="_DOMElementType">
+		<xsd:complexContent>
+			<xsd:extension base="n1:_ControlType">
+				<xsd:sequence>
+					<!-- default aggregation 'attributes'-->
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="n0:DOMAttribute"/>
+						<xsd:element ref="n1:Fragment"/>
+					</xsd:choice>
+					<xsd:element name="attributes" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>DOM attributes which are rendered as part of the DOM element and bindable</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0" maxOccurs="unbounded">
+									<xsd:element ref="n0:DOMAttribute"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="elements" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Nested DOM elements to support nested bindable structures</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0" maxOccurs="unbounded">
+									<xsd:element ref="n0:DOMElement"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+				<xsd:attribute name="text" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>The text content of the DOM element</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="tag" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>The HTML-tag of the DOM element which contains the text</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.ui.core.tmpl.Template'-->
+	<xsd:complexType name="_TemplateType">
+		<xsd:attribute name="content" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>The Template definition as a String.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.ui.core.tmpl.TemplateControl'-->
+	<xsd:complexType name="_TemplateControlType">
+		<xsd:complexContent>
+			<xsd:extension base="n1:_ControlType">
+				<xsd:sequence/>
+				<xsd:attribute name="context" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>The context is a data object. It can be used for default template expressions. A change of the context object leads to a re-rendering whereas a change of a nested property of the context object doesn't. By default the context is an empty object.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="template" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>The template on which the template control is based on.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="afterRendering" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Fired when the Template Control has been (re-)rendered and its HTML is present in the DOM.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="beforeRendering" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Fired before this Template Control is re-rendered. Use to unbind event handlers from HTML elements etc.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+</xsd:schema>

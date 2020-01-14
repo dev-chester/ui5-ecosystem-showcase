@@ -1,0 +1,680 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="sap.ui.commons.layout"
+	xmlns:n0="sap.ui.commons.layout"
+	xmlns:n1="sap.ui.core"
+	xmlns:n2="sap.ui.layout"
+	>
+	<xsd:import namespace="sap.ui.core"/>
+	<xsd:import namespace="sap.ui.layout"/>
+	<xsd:element name="AbsoluteLayout" type="n0:_AbsoluteLayoutType" substitutionGroup="n1:Control">
+		<xsd:annotation>
+			<xsd:documentation>The Absolute Layout positions its child controls absolutely</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="BorderLayout" type="n0:_BorderLayoutType" substitutionGroup="n1:Control">
+		<xsd:annotation>
+			<xsd:documentation>Based upon the border layout as it comes with the Java standard. Using this layout, you are able to divide your available UI space into five areas whose sizes can be defined. These areas are: Top: Header; Bottom: Footer; Begin: Left/right-hand side panel; Center: Content area in the middle; End: Right/left-hand side panel.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="BorderLayoutArea" type="n0:_BorderLayoutAreaType" substitutionGroup="n1:Element">
+		<xsd:annotation>
+			<xsd:documentation>The BorderLayoutArea represents one area of a BorderLayout</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="HorizontalLayout" type="n0:_HorizontalLayoutType" substitutionGroup="n2:HorizontalLayout">
+		<xsd:annotation>
+			<xsd:documentation>A layout that provides support for horizontal alignment of controls</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="MatrixLayout" type="n0:_MatrixLayoutType" substitutionGroup="n1:Control">
+		<xsd:annotation>
+			<xsd:documentation>&lt;p&gt; A matrix layout arranges controls in a grid structure, using rows which need not have the same number of cells. &lt;/p&gt;
+
+&lt;p&gt; It uses predefined cell classes that guarantee appropriate distances between cells in the grid. The cell's &lt;code&gt;vGutter&lt;/code&gt; property lets you specify additional horizontal distances easily. You can set these additional distances (known as gutters) with or without separators. The distance for each cell is specified by assigning a specific enumeration value of the class &lt;code&gt;LayoutCellSeparator&lt;/code&gt; of the matrix data object. &lt;/p&gt;
+
+&lt;p&gt; You should &lt;b&gt;avoid nesting&lt;/b&gt; matrix layouts. You should only use a matrix layout if you need to align controls horizontally across rows. &lt;/p&gt;</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="MatrixLayoutCell" type="n0:_MatrixLayoutCellType" substitutionGroup="n1:Element">
+		<xsd:annotation>
+			<xsd:documentation>Non-control element used as part of a matrix layout's inner structure.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="MatrixLayoutRow" type="n0:_MatrixLayoutRowType" substitutionGroup="n1:Element">
+		<xsd:annotation>
+			<xsd:documentation>Non-control element used as part of a matrix layout's inner structure.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="PositionContainer" type="n0:_PositionContainerType" substitutionGroup="n1:Element">
+		<xsd:annotation>
+			<xsd:documentation>Is used to specify the position of a control in the AbsoluteLayout</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ResponsiveFlowLayout" type="n0:_ResponsiveFlowLayoutType" substitutionGroup="n2:ResponsiveFlowLayout">
+		<xsd:annotation>
+			<xsd:documentation>This is a layout where several controls can be added. These controls are blown up to fit a whole line. If the window resizes the controls are moved between the lines and resized again.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ResponsiveFlowLayoutData" type="n0:_ResponsiveFlowLayoutDataType" substitutionGroup="n2:ResponsiveFlowLayoutData">
+		<xsd:annotation>
+			<xsd:documentation>This is a LayoutData Element that can be added to a control if this control is used within a ResponsiveFlowLayout</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="VerticalLayout" type="n0:_VerticalLayoutType" substitutionGroup="n2:VerticalLayout">
+		<xsd:annotation>
+			<xsd:documentation>In this layout the elemnts are orderd one below the other</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!--type definition for UIElement 'sap.ui.commons.layout.AbsoluteLayout'-->
+	<xsd:complexType name="_AbsoluteLayoutType">
+		<xsd:complexContent>
+			<xsd:extension base="n1:_ControlType">
+				<xsd:sequence>
+					<!-- default aggregation 'positions'-->
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="n0:PositionContainer"/>
+						<xsd:element ref="n1:Fragment"/>
+					</xsd:choice>
+					<xsd:element name="positions" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Positioned child controls within the layout</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0" maxOccurs="unbounded">
+									<xsd:element ref="n0:PositionContainer"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+				<xsd:attribute name="width" type="n1:_CSSSizeType">
+					<xsd:annotation>
+						<xsd:documentation>The overall width of the control. When not set, 100% is automatically set.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="height" type="n1:_CSSSizeType">
+					<xsd:annotation>
+						<xsd:documentation>The overall height of the control. When not set, 100% is automatically set.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="verticalScrolling" type="n1:_ScrollingType">
+					<xsd:annotation>
+						<xsd:documentation>'Auto', 'Scroll', 'Hidden', and 'None' are the available values for setting the vertical scrolling mode.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="horizontalScrolling" type="n1:_ScrollingType">
+					<xsd:annotation>
+						<xsd:documentation>'Auto', 'Scroll', 'Hidden', and 'None' are the available values for setting the vertical scrolling mode.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.ui.commons.layout.BorderLayout'-->
+	<xsd:complexType name="_BorderLayoutType">
+		<xsd:complexContent>
+			<xsd:extension base="n1:_ControlType">
+				<xsd:sequence>
+					<xsd:element name="top" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Represents the Top area</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:BorderLayoutArea"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="begin" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Represents the Begin area</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:BorderLayoutArea"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="center" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Represents the Center area</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:BorderLayoutArea"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="end" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Represents the End area</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:BorderLayoutArea"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="bottom" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Represents the Bottom area</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:BorderLayoutArea"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+				<xsd:attribute name="rtl" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>The RTL setting swaps the areas Begin and End.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="width" type="n1:_CSSSizeType">
+					<xsd:annotation>
+						<xsd:documentation>Defines the overall width of the layout</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="height" type="n1:_CSSSizeType">
+					<xsd:annotation>
+						<xsd:documentation>Defines the overall height of the layout</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.ui.commons.layout.BorderLayoutArea'-->
+	<xsd:complexType name="_BorderLayoutAreaType">
+		<xsd:complexContent>
+			<xsd:extension base="n1:_ElementType">
+				<xsd:sequence>
+					<!-- default aggregation 'content'-->
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="n1:Control"/>
+						<xsd:element ref="n1:Fragment"/>
+						<xsd:any processContents="lax" namespace="http://www.w3.org/1999/xhtml" />
+					</xsd:choice>
+					<xsd:element name="content" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Controls within the area</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0" maxOccurs="unbounded">
+									<xsd:element ref="n1:Control"/>
+									<xsd:element ref="n1:Fragment"/>
+									<xsd:any processContents="lax" namespace="http://www.w3.org/1999/xhtml"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+				<xsd:attribute name="areaId" type="n0:_BorderLayoutAreaTypesType">
+					<xsd:annotation>
+						<xsd:documentation>Defines which area the element represents: top, begin, center, end, bottom</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="overflowX" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>The overflow mode of the area in horizontal direction as CSS value</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="overflowY" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>The overflow mode of the area in vertical direction as CSS value</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="contentAlign" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>The content alignment as CSS value</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="size" type="n1:_CSSSizeType">
+					<xsd:annotation>
+						<xsd:documentation>Defines the height or the width. Is not used when the area element is in Center.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="visible" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>Invisible controls are not rendered</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.ui.commons.layout.HorizontalLayout'-->
+	<xsd:complexType name="_HorizontalLayoutType">
+		<xsd:complexContent>
+			<xsd:extension base="n2:_HorizontalLayoutType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.ui.commons.layout.MatrixLayout'-->
+	<xsd:complexType name="_MatrixLayoutType">
+		<xsd:complexContent>
+			<xsd:extension base="n1:_ControlType">
+				<xsd:sequence>
+					<!-- default aggregation 'rows'-->
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="n0:MatrixLayoutRow"/>
+						<xsd:element ref="n1:Fragment"/>
+					</xsd:choice>
+					<xsd:element name="rows" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>The matrix layout's individual rows.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0" maxOccurs="unbounded">
+									<xsd:element ref="n0:MatrixLayoutRow"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+				<xsd:attribute name="width" type="n1:_CSSSizeType">
+					<xsd:annotation>
+						<xsd:documentation>CSS width of the matrix layout. If the LayoutFixed = true an adequate width should be provided.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="height" type="n1:_CSSSizeType">
+					<xsd:annotation>
+						<xsd:documentation>CSS height of the matrix layout.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="layoutFixed" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>Sets the table layout. If fixed the width parameter of a column has priority, if not the width of the content of the colums has priority. The default is "fixed". If the fixed layout is used an adequate width of the MatrixLayout should be provided. Otherwise the column width displayed could be different than the given ones because of browser dependend optimazations.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="columns" type="xsd:int">
+					<xsd:annotation>
+						<xsd:documentation>Number of columns. If not specified, the number of columns will be determined from the given cells.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="widths" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Widths of the columns. Use an array to define the widths of the columns. If a column shall have an automatical sizing enter "auto" for this column width.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.ui.commons.layout.MatrixLayoutCell'-->
+	<xsd:complexType name="_MatrixLayoutCellType">
+		<xsd:complexContent>
+			<xsd:extension base="n1:_ElementType">
+				<xsd:sequence>
+					<!-- default aggregation 'content'-->
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="n1:Control"/>
+						<xsd:element ref="n1:Fragment"/>
+						<xsd:any processContents="lax" namespace="http://www.w3.org/1999/xhtml" />
+					</xsd:choice>
+					<xsd:element name="content" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>The matrix layout cell's content (arbitrary controls).
+
+If the matrix row has a defined height and the matrix has layoutFixed = true, the controls inside of a cell should all use the same unit for its height property.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0" maxOccurs="unbounded">
+									<xsd:element ref="n1:Control"/>
+									<xsd:element ref="n1:Fragment"/>
+									<xsd:any processContents="lax" namespace="http://www.w3.org/1999/xhtml"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+				<xsd:attribute name="backgroundDesign" type="n0:_BackgroundDesignType">
+					<xsd:annotation>
+						<xsd:documentation>Determines the matrix layout cell's background design.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="colSpan" type="xsd:int">
+					<xsd:annotation>
+						<xsd:documentation>Determines how many columns of the underlying grid structure are occupied by this matrix layout cell.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="hAlign" type="n0:_HAlignType">
+					<xsd:annotation>
+						<xsd:documentation>Determines the horizontal alignment of the matrix layout cell's content with the cell's borders.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="padding" type="n0:_PaddingType">
+					<xsd:annotation>
+						<xsd:documentation>Determines the padding of the matrix layout cell's content within the cell's borders. The default value is appropriate for all cells in a form-like layout. Consider to remove the padding on the outer layout in case of nesting.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="rowSpan" type="xsd:int">
+					<xsd:annotation>
+						<xsd:documentation>Determines how many rows of the underlying grid structure are occupied by this matrix layout cell. In case a row-height is used, all rows affected by the RowSpan must have the same unit.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="separation" type="n0:_SeparationType">
+					<xsd:annotation>
+						<xsd:documentation>Determines how a matrix layout cell is separated from its predecessor, via a vertical gutter of variable width, with or without a vertical line.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="vAlign" type="n0:_VAlignType">
+					<xsd:annotation>
+						<xsd:documentation>Determines the vertical alignment of the matrix layout cell's content with the cell's borders.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.ui.commons.layout.MatrixLayoutRow'-->
+	<xsd:complexType name="_MatrixLayoutRowType">
+		<xsd:complexContent>
+			<xsd:extension base="n1:_ElementType">
+				<xsd:sequence>
+					<!-- default aggregation 'cells'-->
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="n0:MatrixLayoutCell"/>
+						<xsd:element ref="n1:Fragment"/>
+					</xsd:choice>
+					<xsd:element name="cells" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>The matrix layout row's individual cells.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0" maxOccurs="unbounded">
+									<xsd:element ref="n0:MatrixLayoutCell"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+				<xsd:attribute name="height" type="n1:_CSSSizeType">
+					<xsd:annotation>
+						<xsd:documentation>Height of the row.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.ui.commons.layout.PositionContainer'-->
+	<xsd:complexType name="_PositionContainerType">
+		<xsd:complexContent>
+			<xsd:extension base="n1:_ElementType">
+				<xsd:sequence>
+					<!-- default aggregation 'control'-->
+					<xsd:choice minOccurs="0">
+						<xsd:element ref="n1:Control"/>
+						<xsd:element ref="n1:Fragment"/>
+						<xsd:any processContents="lax" namespace="http://www.w3.org/1999/xhtml" />
+					</xsd:choice>
+					<xsd:element name="control" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Child control of the position container</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n1:Control"/>
+									<xsd:element ref="n1:Fragment"/>
+									<xsd:any processContents="lax" namespace="http://www.w3.org/1999/xhtml"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+				<xsd:attribute name="top" type="n1:_CSSSizeType">
+					<xsd:annotation>
+						<xsd:documentation>Defines the distance to the top of the layout (as specified in HTML)</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="bottom" type="n1:_CSSSizeType">
+					<xsd:annotation>
+						<xsd:documentation>Defines the distance to the bottom of the layout (as specified in HTML)</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="left" type="n1:_CSSSizeType">
+					<xsd:annotation>
+						<xsd:documentation>Defines the distance to the left of the layout (as specified in HTML)</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="right" type="n1:_CSSSizeType">
+					<xsd:annotation>
+						<xsd:documentation>Defines the distance to the right of the layout (as specified in HTML)</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="centerHorizontally" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>Indicates whether this container shall be centered horizontally within the AbsoluteLayout area. The values of the attributes left and right are ignored when this feature is activated.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="centerVertically" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>Indicates whether this container should be centered vertically within the AbsoluteLayout area. The values of the attributes top and bottom are ignored when this feature is activated.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.ui.commons.layout.ResponsiveFlowLayout'-->
+	<xsd:complexType name="_ResponsiveFlowLayoutType">
+		<xsd:complexContent>
+			<xsd:extension base="n2:_ResponsiveFlowLayoutType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.ui.commons.layout.ResponsiveFlowLayoutData'-->
+	<xsd:complexType name="_ResponsiveFlowLayoutDataType">
+		<xsd:complexContent>
+			<xsd:extension base="n2:_ResponsiveFlowLayoutDataType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.ui.commons.layout.VerticalLayout'-->
+	<xsd:complexType name="_VerticalLayoutType">
+		<xsd:complexContent>
+			<xsd:extension base="n2:_VerticalLayoutType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:simpleType name="_BackgroundDesignType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Border">
+				<xsd:annotation>
+					<xsd:documentation>A background design suitable for borders.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Fill1">
+				<xsd:annotation>
+					<xsd:documentation>An opaque background design that looks dark filled.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Fill2">
+				<xsd:annotation>
+					<xsd:documentation>An opaque background design that looks medium filled.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Fill3">
+				<xsd:annotation>
+					<xsd:documentation>An opaque background design that looks light filled.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Header">
+				<xsd:annotation>
+					<xsd:documentation>A background design suitable for headers.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Plain">
+				<xsd:annotation>
+					<xsd:documentation>A plain but opaque background design.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Transparent">
+				<xsd:annotation>
+					<xsd:documentation>A transparent background.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="_BorderLayoutAreaTypesType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="begin">
+				<xsd:annotation>
+					<xsd:documentation>Value to identify the begin area.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="bottom">
+				<xsd:annotation>
+					<xsd:documentation>Value to identify the bottom area.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="center">
+				<xsd:annotation>
+					<xsd:documentation>Value to identify the center area.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="end">
+				<xsd:annotation>
+					<xsd:documentation>Value to identify the end area.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="top">
+				<xsd:annotation>
+					<xsd:documentation>Value to identify the top area.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="_HAlignType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Begin">
+				<xsd:annotation>
+					<xsd:documentation>Aligned towards the beginning of a line, in the current locale's writing direction.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Center">
+				<xsd:annotation>
+					<xsd:documentation>Horizontally centered.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="End">
+				<xsd:annotation>
+					<xsd:documentation>Aligned towards the end of a line, in the current locale's writing direction.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Left">
+				<xsd:annotation>
+					<xsd:documentation>Left aligned, regardless of the current locale's writing direction.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Right">
+				<xsd:annotation>
+					<xsd:documentation>Right aligned, regardless of the current locale's writing direction.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="_PaddingType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Begin">
+				<xsd:annotation>
+					<xsd:documentation>Top and bottom padding of 2px. Padding of 4px towards the beginning of a line, in the current locale's writing direction, but none towards its end.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Both">
+				<xsd:annotation>
+					<xsd:documentation>Top and bottom padding of 2px. Padding of 4px towards both the beginning and end of a line.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="End">
+				<xsd:annotation>
+					<xsd:documentation>Top and bottom padding of 2px. Padding of 4px towards the end of a line, in the current locale's writing direction, but none towards its beginning.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Neither">
+				<xsd:annotation>
+					<xsd:documentation>Top and bottom padding of 2px. No padding towards neither the beginning nor end of a line.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="None">
+				<xsd:annotation>
+					<xsd:documentation>No padding at all.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="_SeparationType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Large">
+				<xsd:annotation>
+					<xsd:documentation>A large (63px) vertical gutter without a vertical line.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="LargeWithLine">
+				<xsd:annotation>
+					<xsd:documentation>A large (63px) vertical gutter with a vertical line in its middle.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Medium">
+				<xsd:annotation>
+					<xsd:documentation>A medium (31px) vertical gutter without a vertical line.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="MediumWithLine">
+				<xsd:annotation>
+					<xsd:documentation>A medium (31px) vertical gutter with a vertical line in its middle.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="None">
+				<xsd:annotation>
+					<xsd:documentation>No gutter at all (0px), and without a vertical line, of course.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Small">
+				<xsd:annotation>
+					<xsd:documentation>A small (17px) vertical gutter without a vertical line.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="SmallWithLine">
+				<xsd:annotation>
+					<xsd:documentation>A small (17px) vertical gutter with a vertical line in its middle.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="_VAlignType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Bottom">
+				<xsd:annotation>
+					<xsd:documentation>Aligned at the bottom.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Middle">
+				<xsd:annotation>
+					<xsd:documentation>Vertically centered.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Top">
+				<xsd:annotation>
+					<xsd:documentation>Aligned at the top.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

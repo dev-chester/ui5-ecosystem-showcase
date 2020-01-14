@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="sap.ui.core.search"
+	xmlns:n0="sap.ui.core.search"
+	xmlns:n1="sap.ui.core"
+	>
+	<xsd:import namespace="sap.ui.core"/>
+	<xsd:element name="OpenSearchProvider" type="n0:_OpenSearchProviderType" substitutionGroup="n0:SearchProvider">
+		<xsd:annotation>
+			<xsd:documentation>A SearchProvider which uses the OpenSearch protocol (either JSON or XML).</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SearchProvider" type="n0:_SearchProviderType" substitutionGroup="n1:Element">
+		<xsd:annotation>
+			<xsd:documentation>Abstract base class for all SearchProviders which can be e.g. attached to a SearchField.
+
+Do not create instances of this class, but use a concrete subclass instead.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!--type definition for UIElement 'sap.ui.core.search.OpenSearchProvider'-->
+	<xsd:complexType name="_OpenSearchProviderType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_SearchProviderType">
+				<xsd:attribute name="suggestUrl" type="n1:_URIType">
+					<xsd:annotation>
+						<xsd:documentation>The URL for suggestions of the search provider. As placeholder for the concrete search queries '{searchTerms}' must be used. For cross domain requests maybe a proxy must be used.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="suggestType" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>The type of data which is provided by the given suggestUrl: either 'json' or 'xml'.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.ui.core.search.SearchProvider'-->
+	<xsd:complexType name="_SearchProviderType">
+		<xsd:complexContent>
+			<xsd:extension base="n1:_ElementType">
+				<xsd:attribute name="icon" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Icon of the Search Provider</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+</xsd:schema>

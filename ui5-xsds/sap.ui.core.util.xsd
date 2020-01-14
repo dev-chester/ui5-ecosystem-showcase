@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="sap.ui.core.util"
+	xmlns:n0="sap.ui.core.util"
+	xmlns:n1="sap.ui.core"
+	>
+	<xsd:import namespace="sap.ui.core"/>
+	<xsd:element name="Export" type="n0:_ExportType" substitutionGroup="n1:Control">
+		<xsd:annotation>
+			<xsd:documentation>Export provides the possibility to generate a list of data in a specific format / type, e.g. CSV to use it in other programs / applications.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ExportCell" type="n0:_ExportCellType" substitutionGroup="n1:Element">
+		<xsd:annotation>
+			<xsd:documentation>Contains content that can be used to export data. Used in {@link sap.ui.core.util.ExportColumn ExportColumn} / {@link sap.ui.core.util.Export Export}.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ExportColumn" type="n0:_ExportColumnType">
+		<xsd:annotation>
+			<xsd:documentation>Can have a name and a cell template.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ExportRow" type="n0:_ExportRowType">
+		<xsd:annotation>
+			<xsd:documentation>Internally used in {@link sap.ui.core.util.Export Export}.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ExportType" type="n0:_ExportTypeType">
+		<xsd:annotation>
+			<xsd:documentation>Base export type. Subclasses can be used for {@link sap.ui.core.util.Export Export}.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!--type definition for UIElement 'sap.ui.core.util.Export'-->
+	<xsd:complexType name="_ExportType">
+		<xsd:complexContent>
+			<xsd:extension base="n1:_ControlType">
+				<xsd:sequence>
+					<xsd:element name="exportType" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Type that generates the content.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:ExportType"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="columns" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Columns for the Export.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0" maxOccurs="unbounded">
+									<xsd:element ref="n0:ExportColumn"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="rows" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Rows of the Export.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0" maxOccurs="unbounded">
+									<xsd:element ref="n0:ExportRow"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.ui.core.util.ExportCell'-->
+	<xsd:complexType name="_ExportCellType">
+		<xsd:complexContent>
+			<xsd:extension base="n1:_ElementType">
+				<xsd:attribute name="content" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Cell content.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.ui.core.util.ExportColumn'-->
+	<xsd:complexType name="_ExportColumnType">
+		<xsd:sequence>
+			<xsd:element name="template" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Cell template for column.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:choice minOccurs="0">
+							<xsd:element ref="n0:ExportCell"/>
+							<xsd:element ref="n1:Fragment"/>
+						</xsd:choice>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>Column name.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.ui.core.util.ExportRow'-->
+	<xsd:complexType name="_ExportRowType">
+		<xsd:sequence>
+			<xsd:element name="cells" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Cells for the Export.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:choice minOccurs="0" maxOccurs="unbounded">
+							<xsd:element ref="n0:ExportCell"/>
+							<xsd:element ref="n1:Fragment"/>
+						</xsd:choice>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.ui.core.util.ExportType'-->
+	<xsd:complexType name="_ExportTypeType">
+		<xsd:attribute name="fileExtension" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>File extension.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="mimeType" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>MIME type.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="charset" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>Charset.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="byteOrderMark" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>Whether to prepend an unicode byte order mark when saving as a file (only applies for utf-8 charset).</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+</xsd:schema>

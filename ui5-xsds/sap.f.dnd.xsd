@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="sap.f.dnd"
+	xmlns:n0="sap.f.dnd"
+	xmlns:n1="sap.ui.core.dnd"
+	>
+	<xsd:import namespace="sap.ui.core.dnd"/>
+	<xsd:element name="GridDropInfo" type="n0:_GridDropInfoType" substitutionGroup="n1:DropInfo">
+		<xsd:annotation>
+			<xsd:documentation>Provides enhanced configuration for drop operations inside grid-based controls.
+
+If drop position is &lt;code&gt;Between&lt;/code&gt; and drop layout is &lt;code&gt;Horizontal&lt;/code&gt;, this drop configuration will provide enhanced visualization and interaction, better suited for grid items. It will show a drop indicator which mimics the size of the dragged item and shows the potential drop position inside the grid. The indicator will push away other grid items, showing the correct arrangement calculated by the grid’s auto-placement algorithm.
+
+When position is different than &lt;code&gt;Between&lt;/code&gt; or layout is not &lt;code&gt;Horizontal&lt;/code&gt;, the drag and drop will look and behave like the general &lt;code&gt;{@link sap.ui.core.dnd.DropInfo}&lt;/code&gt;.
+
+&lt;b&gt;Note:&lt;/b&gt; This configuration might be ignored due to control {@link sap.ui.core.Element.extend metadata} restrictions.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!--type definition for UIElement 'sap.f.dnd.GridDropInfo'-->
+	<xsd:complexType name="_GridDropInfoType">
+		<xsd:complexContent>
+			<xsd:extension base="n1:_DropInfoType">
+				<xsd:attribute name="dropIndicatorSize" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>A function which will define the desired drop indicator size. The drop indicator shows the user how the grid will rearrange after drop.
+
+Use when custom size needs to be defined. For example when an item is dragged from outside a grid and is dropped over the grid.
+
+If not specified or if the function returns &lt;code&gt;null&lt;/code&gt;, the indicator size will be calculated automatically.
+
+This callback will be called when the indicator is displayed, that happens during the drag over movement.
+
+The callback receives &lt;code&gt;draggedControl&lt;/code&gt; as parameter and must return an object of type &lt;code&gt;{rows: &lt;int&gt;, columns: &lt;int&gt;}&lt;/code&gt; or &lt;code&gt;null&lt;/code&gt;.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+</xsd:schema>

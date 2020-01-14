@@ -1,0 +1,964 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="sap.f.semantic"
+	xmlns:n0="sap.f.semantic"
+	xmlns:n1="sap.ui.core"
+	xmlns:n2="sap.m"
+	xmlns:n3="sap.f"
+	>
+	<xsd:import namespace="sap.ui.core"/>
+	<xsd:import namespace="sap.m"/>
+	<xsd:import namespace="sap.f"/>
+	<xsd:element name="AddAction" type="n0:_AddActionType" substitutionGroup="n0:SemanticButton">
+		<xsd:annotation>
+			<xsd:documentation>A semantic-specific button, eligible for the &lt;code&gt;addAction&lt;/code&gt; aggregation of the {@link sap.f.semantic.SemanticPage} to be placed in its title.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="CloseAction" type="n0:_CloseActionType" substitutionGroup="n0:SemanticButton">
+		<xsd:annotation>
+			<xsd:documentation>A semantic-specific button, eligible for the &lt;code&gt;closeAction&lt;/code&gt; aggregation of the {@link sap.f.semantic.SemanticPage} to be placed in its title.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="CopyAction" type="n0:_CopyActionType" substitutionGroup="n0:SemanticButton">
+		<xsd:annotation>
+			<xsd:documentation>A semantic-specific button, eligible for the &lt;code&gt;copyAction&lt;/code&gt; aggregation of the {@link sap.f.semantic.SemanticPage} to be placed in its title.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="DeleteAction" type="n0:_DeleteActionType" substitutionGroup="n0:SemanticButton">
+		<xsd:annotation>
+			<xsd:documentation>A semantic-specific button, eligible for the &lt;code&gt;deleteAction&lt;/code&gt; aggregation of the {@link sap.f.semantic.SemanticPage} to be placed in its title.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="DiscussInJamAction" type="n0:_DiscussInJamActionType" substitutionGroup="n0:SemanticButton">
+		<xsd:annotation>
+			<xsd:documentation>A semantic-specific button, eligible for the &lt;code&gt;discussInJamAction&lt;/code&gt; aggregation of the {@link sap.f.semantic.SemanticPage} to be placed in the share menu within its title.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="EditAction" type="n0:_EditActionType" substitutionGroup="n0:SemanticButton">
+		<xsd:annotation>
+			<xsd:documentation>A semantic-specific button, eligible for the &lt;code&gt;editAction&lt;/code&gt; aggregation of the {@link sap.f.semantic.SemanticPage} to be placed in its title.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ExitFullScreenAction" type="n0:_ExitFullScreenActionType" substitutionGroup="n0:SemanticButton">
+		<xsd:annotation>
+			<xsd:documentation>A semantic-specific button, eligible for the &lt;code&gt;exitFullScreenAction&lt;/code&gt; aggregation of the {@link sap.f.semantic.SemanticPage} to be placed in its title.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="FavoriteAction" type="n0:_FavoriteActionType" substitutionGroup="n0:SemanticToggleButton">
+		<xsd:annotation>
+			<xsd:documentation>A semantic-specific button, eligible for the &lt;code&gt;favoriteAction&lt;/code&gt; aggregation of the {@link sap.f.semantic.SemanticPage} to be placed in its title.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="FlagAction" type="n0:_FlagActionType" substitutionGroup="n0:SemanticToggleButton">
+		<xsd:annotation>
+			<xsd:documentation>A semantic-specific button, eligible for the &lt;code&gt;flagAction&lt;/code&gt; aggregation of the {@link sap.f.semantic.SemanticPage} to be placed in its title.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="FooterMainAction" type="n0:_FooterMainActionType" substitutionGroup="n0:MainAction">
+		<xsd:annotation>
+			<xsd:documentation>A semantic-specific button, eligible for the &lt;code&gt;footerMainAction&lt;/code&gt; aggregation of the {@link sap.f.semantic.SemanticPage} to be placed in its footer.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="FullScreenAction" type="n0:_FullScreenActionType" substitutionGroup="n0:SemanticButton">
+		<xsd:annotation>
+			<xsd:documentation>A semantic-specific button, eligible for the &lt;code&gt;fullScreenAction&lt;/code&gt; aggregation of the {@link sap.f.semantic.SemanticPage} to be placed in its title.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="MainAction" type="n0:_MainActionType" substitutionGroup="n0:SemanticButton">
+		<xsd:annotation>
+			<xsd:documentation>Serves as a base class for the {@link sap.f.semantic.TitleMainAction} and {@link sap.f.semantic.FooterMainAction} controls.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="MessagesIndicator" type="n0:_MessagesIndicatorType" substitutionGroup="n0:SemanticButton">
+		<xsd:annotation>
+			<xsd:documentation>A semantic-specific button, eligible for the &lt;code&gt;messagesIndicator&lt;/code&gt; aggregation of the {@link sap.f.semantic.SemanticPage} to be placed in its footer.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="NegativeAction" type="n0:_NegativeActionType" substitutionGroup="n0:SemanticButton">
+		<xsd:annotation>
+			<xsd:documentation>A semantic-specific button, eligible for the &lt;code&gt;negativeAction&lt;/code&gt; aggregation of the {@link sap.f.semantic.SemanticPage} to be placed in its footer.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="PositiveAction" type="n0:_PositiveActionType" substitutionGroup="n0:SemanticButton">
+		<xsd:annotation>
+			<xsd:documentation>A semantic-specific button, eligible for the &lt;code&gt;positiveAction&lt;/code&gt; aggregation of the {@link sap.f.semantic.SemanticPage} to be placed in its footer.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="PrintAction" type="n0:_PrintActionType" substitutionGroup="n0:SemanticButton">
+		<xsd:annotation>
+			<xsd:documentation>A semantic-specific button, eligible for the &lt;code&gt;printAction&lt;/code&gt; aggregation of the {@link sap.f.semantic.SemanticPage} to be placed in the share menu within its title.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SemanticButton" type="n0:_SemanticButtonType" substitutionGroup="n0:SemanticControl">
+		<xsd:annotation>
+			<xsd:documentation>A base class for the available semantic actions, such as {@link sap.f.semantic.AddAction AddAction}, {@link sap.f.semantic.CloseAction CloseAction}, etc.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SemanticControl" type="n0:_SemanticControlType" substitutionGroup="n1:Element">
+		<xsd:annotation>
+			<xsd:documentation>The base class for the {@link sap.f.semantic.SemanticButton}.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SemanticPage" type="n0:_SemanticPageType" substitutionGroup="n1:Control">
+		<xsd:annotation>
+			<xsd:documentation>Provides enhanced functionality by internally aggregating {@link sap.f.DynamicPage} and contains controls with semantic-specific meaning.
+
+&lt;h3&gt;Overview&lt;/h3&gt;
+
+Content specified in the &lt;code&gt;sap.f.semantic.SemanticPage&lt;/code&gt; aggregations is automatically positioned in dedicated sections of the title or the footer of the page, depending on the control's semantics.
+
+The actions in the &lt;code&gt;SemanticPage&lt;/code&gt; title are grouped to text actions or icon actions. When an aggregation is set, the actions appear in the following predefined order (from left to right):
+
+&lt;ul&gt;Text actions: &lt;li&gt;The main semantic text action - &lt;code&gt;titleMainAction&lt;/code&gt;&lt;/li&gt; &lt;li&gt;Any custom text actions - &lt;code&gt;titleCustomTextActions&lt;/code&gt;&lt;/li&gt; &lt;li&gt;The semantic text actions - &lt;code&gt;editAction&lt;/code&gt;, &lt;code&gt;deleteAction&lt;/code&gt;, &lt;code&gt;copyAction&lt;/code&gt; and &lt;code&gt;addAction&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
+
+&lt;ul&gt;Icon actions: &lt;li&gt;Any custom icon actions - &lt;code&gt;titleCustomIconActions&lt;/code&gt;&lt;/li&gt; &lt;li&gt;The simple semantic icon actions - &lt;code&gt;favoriteAction&lt;/code&gt; and &lt;code&gt;flagAction&lt;/code&gt;&lt;/li&gt; &lt;li&gt;The share menu semantic icon actions as a drop-down list with the following order: &lt;ul&gt;&lt;li&gt;&lt;code&gt;sendEmailAction&lt;/code&gt;&lt;/li&gt; &lt;li&gt;&lt;code&gt;discussInJamAction&lt;/code&gt;&lt;/li&gt; &lt;li&gt;&lt;code&gt;shareInJamAction&lt;/code&gt;&lt;/li&gt; &lt;li&gt;&lt;code&gt;sendMessageAction&lt;/code&gt;&lt;/li&gt; &lt;li&gt;&lt;code&gt;printAction&lt;/code&gt;&lt;/li&gt; &lt;li&gt;Any &lt;code&gt;customShareActions&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt; &lt;li&gt;The navigation semantic actions - &lt;code&gt;fullScreenAction&lt;/code&gt;, &lt;code&gt;exitFullScreenAction&lt;/code&gt;, and &lt;code&gt;closeAction&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
+
+The actions in the &lt;code&gt;SemanticPage&lt;/code&gt; footer are positioned either on its left or right area and have the following predefined order:
+
+&lt;ul&gt;Footer left area: &lt;li&gt;The semantic text action - &lt;code&gt;messagesIndicator&lt;/code&gt;&lt;/li&gt; &lt;li&gt;The semantic label - &lt;code&gt;draftIndicator&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
+
+&lt;ul&gt;Footer right area: &lt;li&gt;The main semantic text action - &lt;code&gt;footerMainAction&lt;/code&gt;&lt;/li&gt; &lt;li&gt;The semantic text actions - &lt;code&gt;positiveAction&lt;/code&gt; and &lt;code&gt;negativeAction&lt;/code&gt;&lt;/li&gt; &lt;li&gt;Any custom text actions - &lt;code&gt;footerCustomActions&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
+
+&lt;h3&gt;Usage&lt;/h3&gt;
+
+Using the &lt;code&gt;SemanticPage&lt;/code&gt; facilitates the implementation of the SAP Fiori 2.0 design guidelines.
+
+&lt;h3&gt;Responsive behavior&lt;/h3&gt;
+
+The responsive behavior of the &lt;code&gt;SemanticPage&lt;/code&gt; depends on the behavior of the content that is displayed. To adjust the &lt;code&gt;SemanticPage&lt;/code&gt; content padding, the &lt;code&gt;sapUiContentPadding&lt;/code&gt;, &lt;code&gt;sapUiNoContentPadding&lt;/code&gt;, and &lt;code&gt;sapUiResponsiveContentPadding&lt;/code&gt; CSS classes can be used.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SemanticToggleButton" type="n0:_SemanticToggleButtonType" substitutionGroup="n0:SemanticButton">
+		<xsd:annotation>
+			<xsd:documentation>A base class for the {@link sap.f.semantic.FavoriteAction} and {@link sap.f.semantic.FlagAction}.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SendEmailAction" type="n0:_SendEmailActionType" substitutionGroup="n0:SemanticButton">
+		<xsd:annotation>
+			<xsd:documentation>A semantic-specific button, eligible for the &lt;code&gt;sendEmailAction&lt;/code&gt; aggregation of the {@link sap.f.semantic.SemanticPage} to be placed in the share menu within its title.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SendMessageAction" type="n0:_SendMessageActionType" substitutionGroup="n0:SemanticButton">
+		<xsd:annotation>
+			<xsd:documentation>A semantic-specific button, eligible for the &lt;code&gt;sendMessageAction&lt;/code&gt; aggregation of the {@link sap.f.semantic.SemanticPage} to be placed in the share menu within its title.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ShareInJamAction" type="n0:_ShareInJamActionType" substitutionGroup="n0:SemanticButton">
+		<xsd:annotation>
+			<xsd:documentation>A semantic-specific button, eligible for the &lt;code&gt;shareInJamAction&lt;/code&gt; aggregation of the {@link sap.f.semantic.SemanticPage} to be placed in the share menu within its title.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="TitleMainAction" type="n0:_TitleMainActionType" substitutionGroup="n0:MainAction">
+		<xsd:annotation>
+			<xsd:documentation>A semantic-specific button, eligible for the &lt;code&gt;titleMainAction&lt;/code&gt; aggregation of the {@link sap.f.semantic.SemanticPage} to be placed in its title.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!--type definition for UIElement 'sap.f.semantic.AddAction'-->
+	<xsd:complexType name="_AddActionType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_SemanticButtonType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.f.semantic.CloseAction'-->
+	<xsd:complexType name="_CloseActionType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_SemanticButtonType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.f.semantic.CopyAction'-->
+	<xsd:complexType name="_CopyActionType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_SemanticButtonType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.f.semantic.DeleteAction'-->
+	<xsd:complexType name="_DeleteActionType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_SemanticButtonType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.f.semantic.DiscussInJamAction'-->
+	<xsd:complexType name="_DiscussInJamActionType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_SemanticButtonType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.f.semantic.EditAction'-->
+	<xsd:complexType name="_EditActionType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_SemanticButtonType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.f.semantic.ExitFullScreenAction'-->
+	<xsd:complexType name="_ExitFullScreenActionType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_SemanticButtonType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.f.semantic.FavoriteAction'-->
+	<xsd:complexType name="_FavoriteActionType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_SemanticToggleButtonType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.f.semantic.FlagAction'-->
+	<xsd:complexType name="_FlagActionType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_SemanticToggleButtonType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.f.semantic.FooterMainAction'-->
+	<xsd:complexType name="_FooterMainActionType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_MainActionType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.f.semantic.FullScreenAction'-->
+	<xsd:complexType name="_FullScreenActionType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_SemanticButtonType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.f.semantic.MainAction'-->
+	<xsd:complexType name="_MainActionType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_SemanticButtonType">
+				<xsd:attribute name="text" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Defines &lt;code&gt;MainAction&lt;/code&gt; text</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.f.semantic.MessagesIndicator'-->
+	<xsd:complexType name="_MessagesIndicatorType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_SemanticButtonType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.f.semantic.NegativeAction'-->
+	<xsd:complexType name="_NegativeActionType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_SemanticButtonType">
+				<xsd:attribute name="text" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Defines &lt;code&gt;NegativeAction&lt;/code&gt; text. &lt;b&gt;Note:&lt;/b&gt; the default text is "Reject"</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.f.semantic.PositiveAction'-->
+	<xsd:complexType name="_PositiveActionType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_SemanticButtonType">
+				<xsd:attribute name="text" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Defines &lt;code&gt;PositiveAction&lt;/code&gt; text. &lt;b&gt;Note:&lt;/b&gt; the default text is "Accept"</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.f.semantic.PrintAction'-->
+	<xsd:complexType name="_PrintActionType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_SemanticButtonType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.f.semantic.SemanticButton'-->
+	<xsd:complexType name="_SemanticButtonType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_SemanticControlType">
+				<xsd:attribute name="enabled" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>Determines whether the &lt;code&gt;SemanticButton&lt;/code&gt; is enabled.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="press" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Fired when the user selects the &lt;code&gt;SemanticButton&lt;/code&gt;.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.f.semantic.SemanticControl'-->
+	<xsd:complexType name="_SemanticControlType">
+		<xsd:complexContent>
+			<xsd:extension base="n1:_ElementType">
+				<xsd:sequence/>
+				<xsd:attribute name="visible" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>Determines whether the &lt;code&gt;SemanticControl&lt;/code&gt; is visible.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.f.semantic.SemanticPage'-->
+	<xsd:complexType name="_SemanticPageType">
+		<xsd:complexContent>
+			<xsd:extension base="n1:_ControlType">
+				<xsd:sequence>
+					<!-- default aggregation 'content'-->
+					<xsd:choice minOccurs="0">
+						<xsd:element ref="n1:Control"/>
+						<xsd:element ref="n1:Fragment"/>
+						<xsd:any processContents="lax" namespace="http://www.w3.org/1999/xhtml" />
+					</xsd:choice>
+					<xsd:element name="titleHeading" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>The &lt;code&gt;SemanticPage&lt;/code&gt; heading.
+
+A typical usage is the &lt;code&gt;sap.m.Title&lt;/code&gt; or any other UI5 control, that serves as a heading for an object.
+
+&lt;b&gt;Notes:&lt;/b&gt; &lt;ul&gt; &lt;li&gt;The control will be placed in the title`s leftmost area.&lt;/li&gt; &lt;li&gt;&lt;code&gt;titleHeading&lt;/code&gt; is mutually exclusive with &lt;code&gt;titleSnappedHeading&lt;/code&gt; and &lt;code&gt;titleExpandedHeading&lt;/code&gt;. If &lt;code&gt;titleHeading&lt;/code&gt; is provided, both &lt;code&gt;titleSnappedHeading&lt;/code&gt; and &lt;code&gt;titleExpandedHeading&lt;/code&gt; are ignored. &lt;code&gt;titleHeading&lt;/code&gt; is useful when the content of &lt;code&gt;titleSnappedHeading&lt;/code&gt; and &lt;code&gt;titleExpandedHeading&lt;/code&gt; needs to be the same as it replaces them both.&lt;/li&gt; &lt;li&gt;If the &lt;code&gt;titleSnappedOnMobile&lt;/code&gt; aggregation is set, its content overrides this aggregation when the control is viewed on a phone mobile device and the &lt;code&gt;SemanticPage&lt;/code&gt; header is in its collapsed (snapped) state.&lt;/li&gt; &lt;/ul&gt;</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n1:Control"/>
+									<xsd:element ref="n1:Fragment"/>
+									<xsd:any processContents="lax" namespace="http://www.w3.org/1999/xhtml"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="titleExpandedHeading" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>The &lt;code&gt;titleExpandedHeading&lt;/code&gt; is positioned in the &lt;code&gt;SemanticPage&lt;/code&gt; title left area and is displayed when the header is in expanded state only. Use this aggregation to display a title (or any other UI5 control that serves as a heading) that has to be present in expanded state only.
+
+&lt;b&gt;Note:&lt;/b&gt; In order for &lt;code&gt;titleExpandedHeading&lt;/code&gt; to be taken into account, &lt;code&gt;titleHeading&lt;/code&gt; has to be empty. Combine &lt;code&gt;titleExpandedHeading&lt;/code&gt; with &lt;code&gt;titleSnappedHeading&lt;/code&gt; to switch content when the header switches state.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n1:Control"/>
+									<xsd:element ref="n1:Fragment"/>
+									<xsd:any processContents="lax" namespace="http://www.w3.org/1999/xhtml"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="titleSnappedHeading" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>The &lt;code&gt;titleSnappedHeading&lt;/code&gt; is positioned in the &lt;code&gt;SemanticPage&lt;/code&gt; title left area and is displayed when the header is in collapsed (snapped) state only. Use this aggregation to display a title (or any other UI5 control that serves as a heading) that has to be present in collapsed state only.
+
+&lt;b&gt;Notes:&lt;/b&gt; &lt;ul&gt; &lt;li&gt;In order for &lt;code&gt;titleSnappedHeading&lt;/code&gt; to be taken into account, &lt;code&gt;titleHeading&lt;/code&gt; has to be empty. Combine &lt;code&gt;titleSnappedHeading&lt;/code&gt; with &lt;code&gt;titleExpandedHeading&lt;/code&gt; to switch content when the header switches state.&lt;/li&gt; &lt;li&gt;If the &lt;code&gt;titleSnappedOnMobile&lt;/code&gt; aggregation is set, its content overrides this aggregation when the control is viewed on a phone mobile device and the &lt;code&gt;SemanticPage&lt;/code&gt; header is in its collapsed (snapped) state.&lt;/li&gt; &lt;/ul&gt;</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n1:Control"/>
+									<xsd:element ref="n1:Fragment"/>
+									<xsd:any processContents="lax" namespace="http://www.w3.org/1999/xhtml"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="titleBreadcrumbs" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>The &lt;code&gt;SemanticPage&lt;/code&gt; breadcrumbs.
+
+A typical usage is the &lt;code&gt;sap.m.Breadcrumbs&lt;/code&gt; control or any other UI5 control, that implements the &lt;code&gt;sap.m.IBreadcrumbs&lt;/code&gt; interface.
+
+&lt;b&gt;Notes:&lt;/b&gt; &lt;ul&gt; &lt;li&gt;The control will be placed in the title`s top-left area.&lt;/li&gt; &lt;li&gt;If the &lt;code&gt;titleSnappedOnMobile&lt;/code&gt; aggregation is set, its content overrides this aggregation when the control is viewed on a phone mobile device and the &lt;code&gt;SemanticPage&lt;/code&gt; header is in its collapsed (snapped) state.&lt;/li&gt; &lt;/ul&gt;</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n1:Control"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="titleSnappedOnMobile" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>The only content that is displayed in the &lt;code&gt;SemanticPage&lt;/code&gt; title when it is viewed on a phone mobile device and the &lt;code&gt;SemanticPage&lt;/code&gt; header is in collapsed (snapped) state.
+
+Using this aggregation enables you to provide a simple, single-line title that takes less space on the smaller phone screens when the &lt;code&gt;SemanticPage&lt;/code&gt; header is in its collapsed (snapped) state.
+
+&lt;b&gt;Note:&lt;/b&gt; The content set in this aggregation overrides all the other &lt;code&gt;SemanticPage&lt;/code&gt; aggregations displayed in the title and is only visible on phone mobile devices in collapsed (snapped) state of the &lt;code&gt;SemanticPage&lt;/code&gt; header.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n2:Title"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="titleSnappedContent" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>The content, displayed in the title, when the header is in collapsed state.
+
+&lt;b&gt;Notes:&lt;/b&gt; &lt;ul&gt; &lt;li&gt;The controls will be placed in the title`s left area, under the &lt;code&gt;titleHeading&lt;/code&gt; aggregation.&lt;/li&gt; &lt;li&gt;If the &lt;code&gt;titleSnappedOnMobile&lt;/code&gt; aggregation is set, its content overrides this aggregation when the control is viewed on a phone mobile device and the &lt;code&gt;SemanticPage&lt;/code&gt; header is in its collapsed (snapped) state.&lt;/li&gt; &lt;/ul&gt;</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0" maxOccurs="unbounded">
+									<xsd:element ref="n1:Control"/>
+									<xsd:element ref="n1:Fragment"/>
+									<xsd:any processContents="lax" namespace="http://www.w3.org/1999/xhtml"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="titleExpandedContent" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>The content,displayed in the title, when the header is in expanded state.
+
+&lt;b&gt;Note:&lt;/b&gt; The controls will be placed in the title`s left area, under the &lt;code&gt;titleHeading&lt;/code&gt; aggregation.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0" maxOccurs="unbounded">
+									<xsd:element ref="n1:Control"/>
+									<xsd:element ref="n1:Fragment"/>
+									<xsd:any processContents="lax" namespace="http://www.w3.org/1999/xhtml"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="titleContent" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>The content, displayed in the title.
+
+&lt;b&gt;Notes:&lt;/b&gt; &lt;ul&gt; &lt;li&gt;The controls will be placed in the middle area.&lt;/li&gt; &lt;li&gt;If the &lt;code&gt;titleSnappedOnMobile&lt;/code&gt; aggregation is set, its content overrides this aggregation when the control is viewed on a phone mobile device and the &lt;code&gt;SemanticPage&lt;/code&gt; header is in its collapsed (snapped) state.&lt;/li&gt; &lt;/ul&gt;</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0" maxOccurs="unbounded">
+									<xsd:element ref="n1:Control"/>
+									<xsd:element ref="n1:Fragment"/>
+									<xsd:any processContents="lax" namespace="http://www.w3.org/1999/xhtml"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="titleMainAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>A semantic-specific button which is placed in the &lt;code&gt;SemanticPage&lt;/code&gt; title as first action.
+
+&lt;b&gt;Note:&lt;/b&gt; If the &lt;code&gt;titleSnappedOnMobile&lt;/code&gt; aggregation is set, its content overrides this aggregation when the control is viewed on a phone mobile device and the &lt;code&gt;SemanticPage&lt;/code&gt; header is in its collapsed (snapped) state.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:TitleMainAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="editAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>A semantic-specific button which is placed in the &lt;code&gt;TextActions&lt;/code&gt; area of the &lt;code&gt;SemanticPage&lt;/code&gt; title.
+
+&lt;b&gt;Note:&lt;/b&gt; If the &lt;code&gt;titleSnappedOnMobile&lt;/code&gt; aggregation is set, its content overrides this aggregation when the control is viewed on a phone mobile device and the &lt;code&gt;SemanticPage&lt;/code&gt; header is in its collapsed (snapped) state.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:EditAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="deleteAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>A semantic-specific button which is placed in the &lt;code&gt;TextActions&lt;/code&gt; area of the &lt;code&gt;SemanticPage&lt;/code&gt; title.
+
+&lt;b&gt;Note:&lt;/b&gt; If the &lt;code&gt;titleSnappedOnMobile&lt;/code&gt; aggregation is set, its content overrides this aggregation when the control is viewed on a phone mobile device and the &lt;code&gt;SemanticPage&lt;/code&gt; header is in its collapsed (snapped) state.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:DeleteAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="copyAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>A semantic-specific button which is placed in the &lt;code&gt;TextActions&lt;/code&gt; area of the &lt;code&gt;SemanticPage&lt;/code&gt; title.
+
+&lt;b&gt;Note:&lt;/b&gt; If the &lt;code&gt;titleSnappedOnMobile&lt;/code&gt; aggregation is set, its content overrides this aggregation when the control is viewed on a phone mobile device and the &lt;code&gt;SemanticPage&lt;/code&gt; header is in its collapsed (snapped) state.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:CopyAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="addAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>A semantic-specific button which is placed in the &lt;code&gt;TextActions&lt;/code&gt; area of the &lt;code&gt;SemanticPage&lt;/code&gt; title.
+
+&lt;b&gt;Note:&lt;/b&gt; If the &lt;code&gt;titleSnappedOnMobile&lt;/code&gt; aggregation is set, its content overrides this aggregation when the control is viewed on a phone mobile device and the &lt;code&gt;SemanticPage&lt;/code&gt; header is in its collapsed (snapped) state.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:AddAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="flagAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>A semantic-specific button which is placed in the &lt;code&gt;IconActions&lt;/code&gt; area of the &lt;code&gt;SemanticPage&lt;/code&gt; title.
+
+&lt;b&gt;Note:&lt;/b&gt; If the &lt;code&gt;titleSnappedOnMobile&lt;/code&gt; aggregation is set, its content overrides this aggregation when the control is viewed on a phone mobile device and the &lt;code&gt;SemanticPage&lt;/code&gt; header is in its collapsed (snapped) state.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:FlagAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="favoriteAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>A semantic-specific button which is placed in the &lt;code&gt;IconActions&lt;/code&gt; area of the &lt;code&gt;SemanticPage&lt;/code&gt; title.
+
+&lt;b&gt;Note:&lt;/b&gt; If the &lt;code&gt;titleSnappedOnMobile&lt;/code&gt; aggregation is set, its content overrides this aggregation when the control is viewed on a phone mobile device and the &lt;code&gt;SemanticPage&lt;/code&gt; header is in its collapsed (snapped) state.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:FavoriteAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="fullScreenAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>A semantic-specific button which is placed in the &lt;code&gt;IconActions&lt;/code&gt; area of the &lt;code&gt;SemanticPage&lt;/code&gt; title.
+
+&lt;b&gt;Note:&lt;/b&gt; If the &lt;code&gt;titleSnappedOnMobile&lt;/code&gt; aggregation is set, its content overrides this aggregation when the control is viewed on a phone mobile device and the &lt;code&gt;SemanticPage&lt;/code&gt; header is in its collapsed (snapped) state.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:FullScreenAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="exitFullScreenAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>A semantic-specific button which is placed in the &lt;code&gt;IconActions&lt;/code&gt; area of the &lt;code&gt;SemanticPage&lt;/code&gt; title.
+
+&lt;b&gt;Note:&lt;/b&gt; If the &lt;code&gt;titleSnappedOnMobile&lt;/code&gt; aggregation is set, its content overrides this aggregation when the control is viewed on a phone mobile device and the &lt;code&gt;SemanticPage&lt;/code&gt; header is in its collapsed (snapped) state.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:ExitFullScreenAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="closeAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>A semantic-specific button which is placed in the &lt;code&gt;IconActions&lt;/code&gt; area of the &lt;code&gt;SemanticPage&lt;/code&gt; title.
+
+&lt;b&gt;Note:&lt;/b&gt; If the &lt;code&gt;titleSnappedOnMobile&lt;/code&gt; aggregation is set, its content overrides this aggregation when the control is viewed on a phone mobile device and the &lt;code&gt;SemanticPage&lt;/code&gt; header is in its collapsed (snapped) state.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:CloseAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="titleCustomTextActions" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>The &lt;code&gt;titleCustomTextActions&lt;/code&gt; are placed in the &lt;code&gt;TextActions&lt;/code&gt; area of the &lt;code&gt;SemanticPage&lt;/code&gt; title, right before the semantic text action.
+
+&lt;b&gt;Notes:&lt;/b&gt; &lt;ul&gt; &lt;li&gt;If the &lt;code&gt;titleSnappedOnMobile&lt;/code&gt; aggregation is set, its content overrides this aggregation when the control is viewed on a phone mobile device and the &lt;code&gt;SemanticPage&lt;/code&gt; header is in its collapsed (snapped) state.&lt;/li&gt; &lt;li&gt;Buttons that are part of this aggregation will always have their &lt;code&gt;type&lt;/code&gt; property set to &lt;code&gt;Transparent&lt;/code&gt; by design.&lt;/li&gt; &lt;/ul&gt;</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0" maxOccurs="unbounded">
+									<xsd:element ref="n2:Button"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="titleCustomIconActions" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>The &lt;code&gt;titleCustomIconActions&lt;/code&gt; are placed in the &lt;code&gt;IconActions&lt;/code&gt; area of the &lt;code&gt;SemanticPage&lt;/code&gt; title, right before the semantic icon action.
+
+&lt;b&gt;Note:&lt;/b&gt; If the &lt;code&gt;titleSnappedOnMobile&lt;/code&gt; aggregation is set, its content overrides this aggregation when the control is viewed on a phone mobile device and the &lt;code&gt;SemanticPage&lt;/code&gt; header is in its collapsed (snapped) state.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0" maxOccurs="unbounded">
+									<xsd:element ref="n2:OverflowToolbarButton"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="headerContent" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>The header content.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0" maxOccurs="unbounded">
+									<xsd:element ref="n1:Control"/>
+									<xsd:element ref="n1:Fragment"/>
+									<xsd:any processContents="lax" namespace="http://www.w3.org/1999/xhtml"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="content" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>The &lt;code&gt;SemanticPage&lt;/code&gt; content.
+
+&lt;b&gt;Note:&lt;/b&gt; The SAP Fiori Design guidelines require that the &lt;code&gt;SemanticPage&lt;/code&gt;'s header content and the &lt;code&gt;SemanticPage&lt;/code&gt;'s content are aligned vertically. When using {@link sap.ui.layout.form.Form}, {@link sap.m.Panel}, {@link sap.m.Table} and {@link sap.m.List} in the content area of &lt;code&gt;SemanticPage&lt;/code&gt;, if the content is not already aligned, you need to adjust their left text offset to achieve the vertical alignment. To do this, apply the &lt;code&gt;sapFSemanticPageAlignContent&lt;/code&gt; CSS class to them and set their &lt;code&gt;width&lt;/code&gt; property to &lt;code&gt;auto&lt;/code&gt; (if not set by default).
+
+Example:
+
+&lt;pre&gt;
+&lt;code&gt; &amp;lt;Panel class=“sapFSemanticPageAlignContent” width=“auto”&amp;gt;&amp;lt;/Panel&amp;gt; &lt;/code&gt;
+&lt;/pre&gt;
+
+Please keep in mind that the alignment is not possible when the controls are placed in a {@link sap.ui.layout.Grid} or in other layout controls that use &lt;code&gt;overflow:hidden&lt;/code&gt; CSS property.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n1:Control"/>
+									<xsd:element ref="n1:Fragment"/>
+									<xsd:any processContents="lax" namespace="http://www.w3.org/1999/xhtml"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="footerMainAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>A semantic-specific button which is placed in the &lt;code&gt;FooterRight&lt;/code&gt; area of the &lt;code&gt;SemanticPage&lt;/code&gt; footer with default text value set to &lt;code&gt;Save&lt;/code&gt;.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:FooterMainAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="messagesIndicator" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>A semantic-specific button which is placed in the &lt;code&gt;FooterLeft&lt;/code&gt; area of the &lt;code&gt;SemanticPage&lt;/code&gt; footer as a first action.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:MessagesIndicator"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="draftIndicator" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>A semantic-specific button which is placed in the &lt;code&gt;FooterLeft&lt;/code&gt; area of the &lt;code&gt;SemanticPage&lt;/code&gt; footer as a second action.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n2:DraftIndicator"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="positiveAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>A semantic-specific button which is placed in the &lt;code&gt;FooterRight&lt;/code&gt; area of the &lt;code&gt;SemanticPage&lt;/code&gt; footer with default text value set to &lt;code&gt;Accept&lt;/code&gt;.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:PositiveAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="negativeAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>A semantic-specific button which is placed in the &lt;code&gt;FooterRight&lt;/code&gt; area of the &lt;code&gt;SemanticPage&lt;/code&gt; footer with default text value set to &lt;code&gt;Reject&lt;/code&gt;.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:NegativeAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="footerCustomActions" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>The &lt;code&gt;footerCustomActions&lt;/code&gt; are placed in the &lt;code&gt;FooterRight&lt;/code&gt; area of the &lt;code&gt;SemanticPage&lt;/code&gt; footer, right after the semantic footer actions.
+
+&lt;b&gt;Note:&lt;/b&gt; Buttons that are part of this aggregation will always have their &lt;code&gt;type&lt;/code&gt; property set to &lt;code&gt;Transparent&lt;/code&gt; by design.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0" maxOccurs="unbounded">
+									<xsd:element ref="n2:Button"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="discussInJamAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>A semantic-specific button which is placed in the &lt;code&gt;ShareMenu&lt;/code&gt; area of the &lt;code&gt;SemanticPage&lt;/code&gt; title.
+
+&lt;b&gt;Note:&lt;/b&gt; If the &lt;code&gt;titleSnappedOnMobile&lt;/code&gt; aggregation is set, its content overrides this aggregation when the control is viewed on a phone mobile device and the &lt;code&gt;SemanticPage&lt;/code&gt; header is in its collapsed (snapped) state.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:DiscussInJamAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="saveAsTileAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>A button which is placed in the &lt;code&gt;ShareMenu&lt;/code&gt; area of the &lt;code&gt;SemanticPage&lt;/code&gt; title.
+
+&lt;b&gt;Note:&lt;/b&gt; If the &lt;code&gt;titleSnappedOnMobile&lt;/code&gt; aggregation is set, its content overrides this aggregation when the control is viewed on a phone mobile device and the &lt;code&gt;SemanticPage&lt;/code&gt; header is in its collapsed (snapped) state.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n2:Button"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="shareInJamAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>A semantic-specific button which is placed in the &lt;code&gt;ShareMenu&lt;/code&gt; area of the &lt;code&gt;SemanticPage&lt;/code&gt; title.
+
+&lt;b&gt;Note:&lt;/b&gt; If the &lt;code&gt;titleSnappedOnMobile&lt;/code&gt; aggregation is set, its content overrides this aggregation when the control is viewed on a phone mobile device and the &lt;code&gt;SemanticPage&lt;/code&gt; header is in its collapsed (snapped) state.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:ShareInJamAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="sendMessageAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>A semantic-specific button which is placed in the &lt;code&gt;ShareMenu&lt;/code&gt; area of the &lt;code&gt;SemanticPage&lt;/code&gt; title.
+
+&lt;b&gt;Note:&lt;/b&gt; If the &lt;code&gt;titleSnappedOnMobile&lt;/code&gt; aggregation is set, its content overrides this aggregation when the control is viewed on a phone mobile device and the &lt;code&gt;SemanticPage&lt;/code&gt; header is in its collapsed (snapped) state.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:SendMessageAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="sendEmailAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>A semantic-specific button which is placed in the &lt;code&gt;ShareMenu&lt;/code&gt; area of the &lt;code&gt;SemanticPage&lt;/code&gt; title.
+
+&lt;b&gt;Note:&lt;/b&gt; If the &lt;code&gt;titleSnappedOnMobile&lt;/code&gt; aggregation is set, its content overrides this aggregation when the control is viewed on a phone mobile device and the &lt;code&gt;SemanticPage&lt;/code&gt; header is in its collapsed (snapped) state.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:SendEmailAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="printAction" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>A semantic-specific button which is placed in the &lt;code&gt;ShareMenu&lt;/code&gt; area of the &lt;code&gt;SemanticPage&lt;/code&gt; title.
+
+&lt;b&gt;Note:&lt;/b&gt; If the &lt;code&gt;titleSnappedOnMobile&lt;/code&gt; aggregation is set, its content overrides this aggregation when the control is viewed on a phone mobile device and the &lt;code&gt;SemanticPage&lt;/code&gt; header is in its collapsed (snapped) state.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:PrintAction"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="customShareActions" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>The &lt;code&gt;customShareActions&lt;/code&gt; are placed in the &lt;code&gt;ShareMenu&lt;/code&gt; area of the &lt;code&gt;SemanticPage&lt;/code&gt; title, right after the semantic actions.
+
+&lt;b&gt;Note:&lt;/b&gt; If the &lt;code&gt;titleSnappedOnMobile&lt;/code&gt; aggregation is set, its content overrides this aggregation when the control is viewed on a phone mobile device and the &lt;code&gt;SemanticPage&lt;/code&gt; header is in its collapsed (snapped) state.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0" maxOccurs="unbounded">
+									<xsd:element ref="n2:Button"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="landmarkInfo" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Accessible landmark settings to be applied to the containers of the &lt;code&gt;sap.f.SemanticPage&lt;/code&gt; control.
+
+If not set, no landmarks will be written.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n3:DynamicPageAccessibleLandmarkInfo"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+				<xsd:attribute name="headerExpanded" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>Determines whether the header is expanded.
+
+The header can be also expanded/collapsed by user interaction, which requires the property to be internally mutated by the control to reflect the changed state.
+
+&lt;b&gt;Note:&lt;/b&gt; Please be aware, that initially collapsed header state is not supported, so &lt;code&gt;headerExpanded&lt;/code&gt; should not be set to &lt;code&gt;false&lt;/code&gt; when initializing the control.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="headerPinnable" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>Determines whether the header is pinnable.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="preserveHeaderStateOnScroll" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>Preserves the current header state when scrolling.
+
+For example, if the user expands the header by clicking on the title and then scrolls down the page, the header will remain expanded.
+
+&lt;b&gt;Note:&lt;/b&gt; Based on internal rules, the value of the property is not always taken into account - for example, when the control is rendered on tablet or mobile and the title and the header are with height larger than a given threshold.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="toggleHeaderOnTitleClick" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>Determines whether the user can switch between the expanded/collapsed states of the header by clicking on the title.
+
+If set to &lt;code&gt;false&lt;/code&gt;, the title is not clickable and the application must provide other means for expanding/collapsing the header, if necessary.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="showFooter" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>Determines whether the footer is visible.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="titlePrimaryArea" type="n3:_DynamicPageTitleAreaType">
+					<xsd:annotation>
+						<xsd:documentation>Determines which of the title areas (Begin, Middle) is primary.
+
+&lt;b&gt;Note:&lt;/b&gt; The primary area is shrinking at a lower rate, remaining visible as long as it can.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="titleAreaShrinkRatio" type="n3:_DynamicPageTitleShrinkRatioType">
+					<xsd:annotation>
+						<xsd:documentation>Assigns shrinking ratio to the &lt;code&gt;SemanticPage&lt;/code&gt; title areas (Heading, Content, Actions). The greater value a section has the faster it shrinks when the screen size is being reduced.
+
+The value must be set in &lt;code&gt;Heading:Content:Actions&lt;/code&gt; format where Title, Content and Actions are numbers greater than or equal to 0. If set to 0, the respective area will not shrink.
+
+For example, if &lt;code&gt;2:7:1&lt;/code&gt; is set, the Content area will shrink seven times faster than the Actions area. So, when all three areas have width of 500px and the available space is reduced by 100px the Title area will be reduced by 20px, the Content area - by 70px and the Actions area - by 10px.
+
+If all the areas have assigned values greater than 1, the numbers are scaled so that at least one of them is equal to 1. For example, value of &lt;code&gt;2:4:8&lt;/code&gt; is equal to &lt;code&gt;1:2:4&lt;/code&gt;.
+
+&lt;Note:&gt; When this property is set the &lt;code&gt;titlePrimaryArea&lt;/code&gt; property has no effect.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="fitContent" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>Optimizes &lt;code&gt;SemanticPage&lt;/code&gt; responsiveness on small screens and behavior when expanding/collapsing the &lt;code&gt;SemanticPageHeader&lt;/code&gt;.
+
+&lt;b&gt;Note:&lt;/b&gt; It is recommended to use this property when displaying content of adaptive controls that stretch to fill the available space. Such controls may be {@link sap.ui.table.Table} and {@link sap.ui.table.AnalyticalTable} depending on their settings.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.f.semantic.SemanticToggleButton'-->
+	<xsd:complexType name="_SemanticToggleButtonType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_SemanticButtonType">
+				<xsd:attribute name="pressed" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>Defines the &lt;code&gt;SemanticToggleButton&lt;/code&gt; pressed state.
+
+The property is set to &lt;code&gt;true&lt;/code&gt; when the control is toggled (default is &lt;code&gt;false&lt;/code&gt;).</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.f.semantic.SendEmailAction'-->
+	<xsd:complexType name="_SendEmailActionType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_SemanticButtonType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.f.semantic.SendMessageAction'-->
+	<xsd:complexType name="_SendMessageActionType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_SemanticButtonType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.f.semantic.ShareInJamAction'-->
+	<xsd:complexType name="_ShareInJamActionType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_SemanticButtonType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.f.semantic.TitleMainAction'-->
+	<xsd:complexType name="_TitleMainActionType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_MainActionType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="sap.ui.core.mvc"
+	xmlns:n0="sap.ui.core.mvc"
+	xmlns:n1="sap.ui.core"
+	>
+	<xsd:import namespace="sap.ui.core"/>
+	<xsd:element name="HTMLView" type="n0:_HTMLViewType" substitutionGroup="n0:View">
+		<xsd:annotation>
+			<xsd:documentation>A view defined/constructed by declarative HTML.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="JSONView" type="n0:_JSONViewType" substitutionGroup="n0:View">
+		<xsd:annotation>
+			<xsd:documentation>A View defined using JSON.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="JSView" type="n0:_JSViewType" substitutionGroup="n0:View">
+		<xsd:annotation>
+			<xsd:documentation>A View defined/constructed by JavaScript code.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="TemplateView" type="n0:_TemplateViewType" substitutionGroup="n0:View">
+		<xsd:annotation>
+			<xsd:documentation>A view defined in a template.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="View" type="n0:_ViewType" substitutionGroup="n1:Control">
+		<xsd:annotation>
+			<xsd:documentation>A base class for Views.
+
+Introduces the relationship to a Controller, some basic visual appearance settings like width and height, and provides lifecycle events.
+
+Views form an ID scope for the elements and controls in their content. They can prefix the IDs of elements either automatically (e.g. XMLView) or programmatically (using {@link #createId}). With method {@link #byId}, elements or controls can be found with their view-local ID. Also see {@link topic:91f28be26f4d1014b6dd926db0e91070 "Support for Unique IDs"} in the documentation.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="XMLView" type="n0:_XMLViewType" substitutionGroup="n0:View">
+		<xsd:annotation>
+			<xsd:documentation>A View defined using (P)XML and HTML markup.
+
+&lt;strong&gt;Note:&lt;/strong&gt;&lt;br&gt; Be aware that modifications of the content aggregation of this control are not supported due to technical reasons. This includes calls to all content modifying methods like &lt;code&gt;addContent&gt;&lt;/code&gt; etc., but also the implicit removal of controls contained by the content aggregation. For example the destruction of a Control via the &lt;code&gt; destroy&lt;/code&gt; method. All functions can be called but may not work properly or lead to unexpected side effects.
+
+&lt;strong&gt;Note:&lt;/strong&gt;&lt;br&gt; On root level, you can only define content for the default aggregation, e.g. without adding the &lt;code&gt;&amp;lt;content&amp;gt;&lt;/code&gt; tag. If you want to specify content for another aggregation of a view like &lt;code&gt;dependents&lt;/code&gt;, place it in a child control's dependents aggregation or add it by using {@link sap.ui.core.mvc.XMLView#addDependent}.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!--type definition for UIElement 'sap.ui.core.mvc.HTMLView'-->
+	<xsd:complexType name="_HTMLViewType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_ViewType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.ui.core.mvc.JSONView'-->
+	<xsd:complexType name="_JSONViewType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_ViewType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.ui.core.mvc.JSView'-->
+	<xsd:complexType name="_JSViewType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_ViewType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.ui.core.mvc.TemplateView'-->
+	<xsd:complexType name="_TemplateViewType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_ViewType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.ui.core.mvc.View'-->
+	<xsd:complexType name="_ViewType">
+		<xsd:complexContent>
+			<xsd:extension base="n1:_ControlType">
+				<xsd:sequence>
+					<!-- default aggregation 'content'-->
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="n1:Control"/>
+						<xsd:element ref="n1:Fragment"/>
+						<xsd:any processContents="lax" namespace="http://www.w3.org/1999/xhtml" />
+					</xsd:choice>
+					<xsd:element name="content" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Child Controls of the view</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0" maxOccurs="unbounded">
+									<xsd:element ref="n1:Control"/>
+									<xsd:element ref="n1:Fragment"/>
+									<xsd:any processContents="lax" namespace="http://www.w3.org/1999/xhtml"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+				<xsd:attribute name="width" type="n1:_CSSSizeType">
+					<xsd:annotation>
+						<xsd:documentation>The width</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="height" type="n1:_CSSSizeType">
+					<xsd:annotation>
+						<xsd:documentation>The height</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="viewName" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Name of the View</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="displayBlock" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>Whether the CSS display should be set to "block". Set this to "true" if the default display "inline-block" causes a vertical scrollbar with Views that are set to 100% height. Do not set this to "true" if you want to display other content in the same HTML parent on either side of the View (setting to "true" may push that other content to the next/previous line).</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="controllerName" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation></xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="resourceBundleName" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation></xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="resourceBundleUrl" type="n1:_URIType">
+					<xsd:annotation>
+						<xsd:documentation></xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="resourceBundleLocale" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation></xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="resourceBundleAlias" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation></xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="async" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation></xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="afterInit" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Fired when the View has parsed the UI description and instantiated the contained controls (/control tree).</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="beforeExit" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Fired when the view has received the request to destroy itself, but before it has destroyed anything.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="afterRendering" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Fired when the View has been (re-)rendered and its HTML is present in the DOM.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="beforeRendering" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Fired before this View is re-rendered. Use to unbind event handlers from HTML elements etc.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.ui.core.mvc.XMLView'-->
+	<xsd:complexType name="_XMLViewType">
+		<xsd:complexContent>
+			<xsd:extension base="n0:_ViewType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:simpleType name="_ViewTypeType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="HTML">
+				<xsd:annotation>
+					<xsd:documentation>HTML view</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="JS">
+				<xsd:annotation>
+					<xsd:documentation>JS View</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="JSON">
+				<xsd:annotation>
+					<xsd:documentation>JSON View</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="Template">
+				<xsd:annotation>
+					<xsd:documentation>Template View</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="XML">
+				<xsd:annotation>
+					<xsd:documentation>XML view</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

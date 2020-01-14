@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="sap.ui.commons.form"
+	xmlns:n0="sap.ui.commons.form"
+	xmlns:n1="sap.ui.layout.form"
+	>
+	<xsd:import namespace="sap.ui.layout.form"/>
+	<xsd:element name="Form" type="n0:_FormType" substitutionGroup="n1:Form">
+		<xsd:annotation>
+			<xsd:documentation>Form control. Holder for form control to be rendered in a specific form layout. A Form supports VariantLayoutData for it's conent to allow a simple switching of Layouts.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="FormContainer" type="n0:_FormContainerType" substitutionGroup="n1:FormContainer">
+		<xsd:annotation>
+			<xsd:documentation>Used to group form elements.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="FormElement" type="n0:_FormElementType" substitutionGroup="n1:FormElement">
+		<xsd:annotation>
+			<xsd:documentation>A form element is a combination of one label and different controls associated to this label.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="FormLayout" type="n0:_FormLayoutType" substitutionGroup="n1:FormLayout">
+		<xsd:annotation>
+			<xsd:documentation>Base layout for Forms. Other Layouts must inherit from this one.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="GridContainerData" type="n0:_GridContainerDataType" substitutionGroup="n1:GridContainerData">
+		<xsd:annotation>
+			<xsd:documentation>Grid layout specific properties for FormContainers. The width and height properties of the elements are ignored since the witdh and heights are defined by the grid cells.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="GridElementData" type="n0:_GridElementDataType" substitutionGroup="n1:GridElementData">
+		<xsd:annotation>
+			<xsd:documentation>The grid specific layout data for FormElement fields. The width property of the elements is ignored since the width is defined by grid cells.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="GridLayout" type="n0:_GridLayoutType" substitutionGroup="n1:GridLayout">
+		<xsd:annotation>
+			<xsd:documentation>This Layout implements a guideline 2.0 grid. This can be a 16 column grid or an 8 column grid.
+
+To adjust the content inside the GridLayout GridContainerData and GridElementData could be used.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="ResponsiveLayout" type="n0:_ResponsiveLayoutType" substitutionGroup="n1:ResponsiveLayout">
+		<xsd:annotation>
+			<xsd:documentation>Renders a form with responsive layout. Internally the ResponsiveFlowLayout is used.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SimpleForm" type="n0:_SimpleFormType" substitutionGroup="n1:SimpleForm">
+		<xsd:annotation>
+			<xsd:documentation>Use the SimpleForm to create a form based on title, label and fields that are stacked in the content aggregation. Add Title to start a new FormContainer(Group). Add Label to start a new row in the container. Add Input/Display controls as needed. Use LayoutData to influence the layout for special cases in the Input/Display controls.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!--type definition for UIElement 'sap.ui.commons.form.Form'-->
+	<xsd:complexType name="_FormType">
+		<xsd:complexContent>
+			<xsd:extension base="n1:_FormType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.ui.commons.form.FormContainer'-->
+	<xsd:complexType name="_FormContainerType">
+		<xsd:complexContent>
+			<xsd:extension base="n1:_FormContainerType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.ui.commons.form.FormElement'-->
+	<xsd:complexType name="_FormElementType">
+		<xsd:complexContent>
+			<xsd:extension base="n1:_FormElementType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.ui.commons.form.FormLayout'-->
+	<xsd:complexType name="_FormLayoutType">
+		<xsd:complexContent>
+			<xsd:extension base="n1:_FormLayoutType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.ui.commons.form.GridContainerData'-->
+	<xsd:complexType name="_GridContainerDataType">
+		<xsd:complexContent>
+			<xsd:extension base="n1:_GridContainerDataType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.ui.commons.form.GridElementData'-->
+	<xsd:complexType name="_GridElementDataType">
+		<xsd:complexContent>
+			<xsd:extension base="n1:_GridElementDataType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.ui.commons.form.GridLayout'-->
+	<xsd:complexType name="_GridLayoutType">
+		<xsd:complexContent>
+			<xsd:extension base="n1:_GridLayoutType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.ui.commons.form.ResponsiveLayout'-->
+	<xsd:complexType name="_ResponsiveLayoutType">
+		<xsd:complexContent>
+			<xsd:extension base="n1:_ResponsiveLayoutType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.ui.commons.form.SimpleForm'-->
+	<xsd:complexType name="_SimpleFormType">
+		<xsd:complexContent>
+			<xsd:extension base="n1:_SimpleFormType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+</xsd:schema>

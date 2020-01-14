@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="sap.m.upload"
+	xmlns:n0="sap.m.upload"
+	xmlns:n1="sap.ui.core"
+	xmlns:n2="sap.m"
+	>
+	<xsd:import namespace="sap.ui.core"/>
+	<xsd:import namespace="sap.m"/>
+	<xsd:element name="UploadSet" type="n0:_UploadSetType" substitutionGroup="n1:Control">
+		<xsd:annotation>
+			<xsd:documentation>This control allows you to upload one or more files from your devices (desktop, tablet, or phone) and attach them to your application.&lt;br&gt; This control builds on the {@link sap.m.UploadCollection} control, providing better handling of headers and requests, unified behavior of instant and deferred uploads, as well as improved progress indication.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="UploadSetItem" type="n0:_UploadSetItemType" substitutionGroup="n1:Element">
+		<xsd:annotation>
+			<xsd:documentation>Item that represents one file to be uploaded using the {@link sap.m.upload.UploadSet} control.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="Uploader" type="n0:_UploaderType" substitutionGroup="n1:Element">
+		<xsd:annotation>
+			<xsd:documentation>A basic implementation for uploading and downloading one or multiple files.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!--type definition for UIElement 'sap.m.upload.UploadSet'-->
+	<xsd:complexType name="_UploadSetType">
+		<xsd:complexContent>
+			<xsd:extension base="n1:_ControlType">
+				<xsd:sequence>
+					<!-- default aggregation 'items'-->
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="n0:UploadSetItem"/>
+						<xsd:element ref="n1:Fragment"/>
+					</xsd:choice>
+					<xsd:element name="items" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Items representing files that have already been uploaded.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0" maxOccurs="unbounded">
+									<xsd:element ref="n0:UploadSetItem"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="incompleteItems" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Items representing files yet to be uploaded.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0" maxOccurs="unbounded">
+									<xsd:element ref="n0:UploadSetItem"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="headerFields" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Header fields to be included in the header section of an XHR request.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0" maxOccurs="unbounded">
+									<xsd:element ref="n1:Item"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="toolbar" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Main toolbar of the &lt;code&gt;UploadSet&lt;/code&gt; control.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n2:OverflowToolbar"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="uploader" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Defines the uploader to be used. If not specified, the default implementation is used.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0">
+									<xsd:element ref="n0:Uploader"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+				<xsd:attribute name="fileTypes" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Allowed file types for files to be uploaded. &lt;br&gt;If this property is not set, any file can be uploaded.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="maxFileNameLength" type="xsd:int">
+					<xsd:annotation>
+						<xsd:documentation>Maximum length of names of files to be uploaded. &lt;br&gt;If set to &lt;code&gt;null&lt;/code&gt; or &lt;code&gt;0&lt;/code&gt;, any files can be uploaded, regardless of their names length.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="maxFileSize" type="xsd:float">
+					<xsd:annotation>
+						<xsd:documentation>Size limit in megabytes for files to be uploaded. &lt;br&gt;If set to &lt;code&gt;null&lt;/code&gt; or &lt;code&gt;0&lt;/code&gt;, files of any size can be uploaded.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="mediaTypes" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Allowed media types for files to be uploaded. &lt;br&gt;If this property is not set, any file can be uploaded.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="noDataText" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Defines custom text for the 'No data' text label.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="noDataDescription" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Defines custom text for the 'No data' description label.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="instantUpload" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>Defines whether the upload process should be triggered as soon as the file is added.&lt;br&gt; If set to &lt;code&gt;false&lt;/code&gt;, no upload is triggered when a file is added.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="showIcons" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>Defines whether file icons should be displayed.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="terminationEnabled" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>Defines whether it is allowed to terminate the upload process.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="uploadEnabled" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>Defines whether the upload action is allowed.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="uploadUrl" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>URL where the uploaded files will be stored.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="afterItemAdded" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>This event is fired when a new file is added to the set of items to be uploaded.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="beforeItemAdded" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>This event is fired just before a new file is added to the set of items to be uploaded.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="beforeItemRemoved" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>This event is fired just before the confirmation dialog for 'Remove' action is displayed.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="beforeItemEdited" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>This event is fired when the edit button is clicked for an item and no other item is being edited at the same time. &lt;br&gt;If there is another item that has unsaved changes, the editing of the clicked item cannot be started.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="beforeUploadStarts" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>This event is fired right before the upload process begins.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="uploadCompleted" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>This event is fired right after the upload process is finished.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="beforeUploadTermination" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>This event is fired right before the upload is terminated.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="uploadTerminated" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>This event is fired right after the upload is terminated.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="fileTypeMismatch" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>This event is fired in either of the following cases: &lt;ul&gt; &lt;li&gt;When a file that is selected to be uploaded fails to meet the file type restriction (&lt;code&gt;fileType&lt;/code&gt; property).&lt;/li&gt; &lt;li&gt;When the file type restriction changes, and the file to be uploaded fails to meet the new restriction.&lt;/li&gt; &lt;/ul&gt;</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="fileNameLengthExceeded" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>This event is fired in either of the following cases: &lt;ul&gt; &lt;li&gt;When a file that is selected to be uploaded fails to meet the file name length restriction specified in the &lt;code&gt;maxFileNameLength&lt;/code&gt; property.&lt;/li&gt; &lt;li&gt;When the file name length restriction changes, and the file to be uploaded fails to meet the new restriction.&lt;/li&gt; &lt;/ul&gt;</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="fileSizeExceeded" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>This event is fired in either of the following cases: &lt;ul&gt; &lt;li&gt;When a file that is selected to be uploaded fails to meet the file size restriction specified in the &lt;code&gt;maxFileSize&lt;/code&gt; property.&lt;/li&gt; &lt;li&gt;When the file size restriction changes, and the file to be uploaded fails to meet the new restriction.&lt;/li&gt; &lt;/ul&gt;</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="mediaTypeMismatch" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>This event is fired in either of the following cases: &lt;ul&gt; &lt;li&gt;When a file that is selected to be uploaded fails to meet the media type restriction specified in the &lt;code&gt;mediaTypes&lt;/code&gt; property.&lt;/li&gt; &lt;li&gt;When the media type restriction changes, and the file to be uploaded fails to meet the new restriction.&lt;/li&gt; &lt;/ul&gt;</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="selectionChanged" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>This event is fired simultaneously with the respective event in the inner {@link sap.m.List} control.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.m.upload.UploadSetItem'-->
+	<xsd:complexType name="_UploadSetItemType">
+		<xsd:complexContent>
+			<xsd:extension base="n1:_ElementType">
+				<xsd:sequence>
+					<!-- default aggregation 'attributes'-->
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="n2:ObjectAttribute"/>
+						<xsd:element ref="n1:Fragment"/>
+					</xsd:choice>
+					<xsd:element name="attributes" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Attributes of the item.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0" maxOccurs="unbounded">
+									<xsd:element ref="n2:ObjectAttribute"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="markers" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Markers of the item.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0" maxOccurs="unbounded">
+									<xsd:element ref="n2:ObjectMarker"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="statuses" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Statuses of the item.</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:choice minOccurs="0" maxOccurs="unbounded">
+									<xsd:element ref="n2:ObjectStatus"/>
+									<xsd:element ref="n1:Fragment"/>
+								</xsd:choice>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+				<xsd:attribute name="enabledRemove" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>Enables or disables the remove button.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="enabledEdit" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>Enables or disables the edit button.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="fileName" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Specifies the name of the uploaded file.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="mediaType" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Specifies the MIME type of the file.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="thumbnailUrl" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Specifies the URL where the thumbnail of the file is located. Can also be set to an SAPUI5 icon URL.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="uploadState" type="n2:_UploadStateType">
+					<xsd:annotation>
+						<xsd:documentation>State of the item relevant to its upload process.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="url" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Specifies the URL where the file is located. &lt;br&gt;If the application doesn't provide a value for this property, the icon and the file name are not clickable in {@link sap.m.upload.UploadSet}.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="visibleRemove" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>Shows or hides the remove button.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="visibleEdit" type="xsd:boolean">
+					<xsd:annotation>
+						<xsd:documentation>Shows or hides the edit button.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="openPressed" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>This event is fired when an open action is invoked on an item.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="removePressed" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>This event is fired when a remove action is invoked on an item.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--type definition for UIElement 'sap.m.upload.Uploader'-->
+	<xsd:complexType name="_UploaderType">
+		<xsd:complexContent>
+			<xsd:extension base="n1:_ElementType">
+				<xsd:attribute name="uploadUrl" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>URL where the next file is going to be uploaded to.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="downloadUrl" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>URL where the next file is going to be download from.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="uploadStarted" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>The event is fired just after the POST request was sent.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="uploadProgressed" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>The event is fired every time an XHR request reports progress in uploading.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="uploadCompleted" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>The event is fired when an XHR request reports successful completion of upload process.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="uploadAborted" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>The event is fired when an XHR request reports its abortion.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+</xsd:schema>
