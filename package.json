@@ -13,6 +13,7 @@
     "build": "cd packages/ui5-app && yarn build",
     "clean": "cd packages/ui5-app && yarn clean",
     "dev": "cd packages/ui5-app && yarn dev",
+    "dev:cap": "cd packages/ui5-app && yarn dev:cap",
     "start": "cd packages/ui5-app && yarn start",
     "test": "cd packages/ui5-app && karma start",
     "test:ci": "cd packages/ui5-app && karma start karma-ci.conf.js",
