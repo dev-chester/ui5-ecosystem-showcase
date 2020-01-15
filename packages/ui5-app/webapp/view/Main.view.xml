@@ -42,9 +42,11 @@
 							items="{Backend>/Items}">
 							<items>
 								<CustomListItem>
-									<Text text="{Backend>ID}" />
-									<Image src="/cap/dumpster/Items({Backend>ID})/content" 
-										decorative="false" />
+									<Text text="{Backend>name}" class="sapUiTinyMargin"/>
+									<Text text="({Backend>ID})" class="sapUiTinyMargin"/>
+									<Text text="{Backend>size} bytes" class="sapUiTinyMargin"/>
+									<!-- <Image src="/cap/dumpster/Items({Backend>ID})/content" decorative="false" /> -->
+									<Text text="{Backend>fileLastModified}" class="sapUiTinyMargin"/>
 								</CustomListItem>
 							</items>
 						</List>

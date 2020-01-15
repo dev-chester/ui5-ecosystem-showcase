@@ -41,12 +41,19 @@ sap.ui.define(["test/Sample/controller/BaseController", "sap/m/MessageToast"], (
             // name
             // size
             // type
-            const oUploadedFile =oFileUploader.oFileUpload.files[0]
+            const oUploadedFile = oFileUploader.oFileUpload.files[0]
 
+            const _fileLastModified = oUploadedFile.lastModifiedDate
+                ? oUploadedFile.lastModifiedDate.toISOString()
+                : new Date().toISOString()
+                
             // no primary key needed for payload
             // cap aspect cuid auto-inserts one
             const oPayload = {
-                mediatype: oUploadedFile.type
+                mediatype: oUploadedFile.type,
+                name: oUploadedFile.name,
+                size: oUploadedFile.size,
+                fileLastModified: _fileLastModified
             }
 
             // create entry in persistence for uploaded item

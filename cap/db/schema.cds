@@ -10,4 +10,7 @@ entity Items : cuid, managed {
     content   : LargeBinary @stream;
     @Core.IsMediaType : true
     mediatype : String;
+    name: String;
+    size: Integer; // byte
+    fileLastModified: DateTime
 }
