@@ -36,10 +36,17 @@ sap.ui.define(["test/Sample/controller/BaseController", "sap/m/MessageToast"], (
                 return MessageToast.show(this.getResourceBundle().getText("startPage.upload.chooseFileText"))
             }
 
+            // lastModified
+            // lastModifiedDate
+            // name
+            // size
+            // type
+            const oUploadedFile =oFileUploader.oFileUpload.files[0]
+
             // no primary key needed for payload
             // cap aspect cuid auto-inserts one
             const oPayload = {
-                mediatype: "image/png"
+                mediatype: oUploadedFile.type
             }
 
             // create entry in persistence for uploaded item
