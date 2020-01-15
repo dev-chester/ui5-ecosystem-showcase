@@ -13,10 +13,11 @@
     "ach": "ach",
     "dataSources": {
       "BackendDataSource": {
-        "uri": "/backend/",
+        "uri": "/cap/dumpster/",
         "type": "OData",
         "settings": {
-          "odataVersion": "4.0"
+          "odataVersion": "4.0",
+          "groupId": "$direct"
         }
       },
       "LatestUI5Datasource": {

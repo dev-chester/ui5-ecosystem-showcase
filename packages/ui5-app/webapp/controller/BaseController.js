@@ -1,22 +1,18 @@
-sap.ui.define([
-        "sap/ui/core/mvc/Controller",
-        "sap/ui/core/routing/History"
-    ],
+sap.ui.define(
+    ["sap/ui/core/mvc/Controller", "sap/ui/core/routing/History"],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      * @param {typeof sap.ui.core.routing.History} History
      * @yields {typeof sap.ui.core.mvc.Controller}
      */
     (Controller, History) => {
-        "use strict";
+        "use strict"
 
         return Controller.extend("test.Sample.controller.BaseController", {
-
             /**
              * inits on controller instantiation
              */
-            onInit() {
-            },
+            onInit() {},
 
             /**
              * Convenience method for accessing the router in every controller of the application.
@@ -24,7 +20,7 @@ sap.ui.define([
              * @returns {sap.ui.core.routing.Router} the router for this component
              */
             getRouter() {
-                return this.getOwnerComponent().getRouter();
+                return this.getOwnerComponent().getRouter()
             },
 
             /**
@@ -34,7 +30,7 @@ sap.ui.define([
              * @returns {sap.ui.model.Model} the model instance
              */
             getModel(sName) {
-                return this.getView().getModel(sName);
+                return this.getView().getModel(sName)
             },
 
             /**
@@ -43,7 +39,9 @@ sap.ui.define([
              * @returns {sap.ui.model.resource.ResourceModel} the resourceModel of the component
              */
             getResourceBundle() {
-                return this.getOwnerComponent().getModel("i18n").getResourceBundle();
+                return this.getOwnerComponent()
+                    .getModel("i18n")
+                    .getResourceBundle()
             },
 
             /**
@@ -53,16 +51,24 @@ sap.ui.define([
              * @public
              */
             onNavBack() {
-                const sPreviousHash = History.getInstance().getPreviousHash();
+                const sPreviousHash = History.getInstance().getPreviousHash()
 
                 if (sPreviousHash !== undefined) {
                     // eslint-disable-next-line
-                    history.go(-1);
+                    history.go(-1)
                 } else {
-                    this.getRouter().navTo("RouteMain", {}, true);
+                    this.getRouter().navTo("RouteMain", {}, true)
                 }
+            },
+
+            // taken from cap-community/sample
+            generateUuidv4() {
+                return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function(c) {
+                    const r = (Math.random() * 16) | 0
+                    const v = c == "x" ? r : (r & 0x3) | 0x8
+                    return v.toString(16)
+                })
             }
-
-        });
-
-    });
+        })
+    }
+)
