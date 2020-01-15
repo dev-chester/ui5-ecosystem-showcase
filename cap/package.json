@@ -1,0 +1,36 @@
+{
+    "name": "cap",
+    "version": "1.0.0",
+    "description": "A simple CAP project.",
+    "private": true,
+    "repository": "<Add your repository here>",
+    "license": "ISC",
+    "dependencies": {
+        "@sap/cds": "^3",
+        "@sap/cds-dk": "^1",
+        "express": "^4",
+        "sqlite3": "^4"
+    },
+    "scripts": {
+        "start": "cds run",
+        "deploy": "cds deploy",
+        "watch": "cds watch"
+    },
+    "cds": {
+        "odata": {
+            "version": "v4"
+        },
+        "requires": {
+            "db": {
+                "kind": "sqlite",
+                "model": [
+                    "srv",
+                    "db"
+                ],
+                "credentials": {
+                    "database": "dumpster.db"
+                }
+            }
+        }
+    }
+}
