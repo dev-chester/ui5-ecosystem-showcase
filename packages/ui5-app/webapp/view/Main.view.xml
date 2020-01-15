@@ -25,14 +25,15 @@
 					</l:BlockLayoutCell>
 				</l:BlockLayoutRow>
 				<l:BlockLayoutRow>
-					<l:BlockLayoutCell>
+					<l:BlockLayoutCell width="2">
+						<VBox width="100%" alignItems="Center">
 						<s:FileUploaderV4 id="FileUploader" 
 							useMultipart="false" 
 							uploadUrl="/cap/dumpster/Items" 
 							uploadComplete="onUploadComplete" />
 						<Button text="{i18n>startPage.uploadButton.text}" 
 							press="handleUploadPress" />
-
+						</VBox>
 					</l:BlockLayoutCell>
 				</l:BlockLayoutRow>
 				<l:BlockLayoutRow>
@@ -42,11 +43,15 @@
 							items="{Backend>/Items}">
 							<items>
 								<CustomListItem>
-									<Text text="{Backend>name}" class="sapUiTinyMargin"/>
-									<Text text="({Backend>ID})" class="sapUiTinyMargin"/>
-									<Text text="{Backend>size} bytes" class="sapUiTinyMargin"/>
+									<Text text="{Backend>name}" 
+										class="sapUiTinyMargin" />
+									<Text text="({Backend>ID})" 
+										class="sapUiTinyMargin" />
+									<Text text="{Backend>size} bytes" 
+										class="sapUiTinyMargin" />
 									<!-- <Image src="/cap/dumpster/Items({Backend>ID})/content" decorative="false" /> -->
-									<Text text="{Backend>fileLastModified}" class="sapUiTinyMargin"/>
+									<Text text="{Backend>fileLastModified}" 
+										class="sapUiTinyMargin" />
 								</CustomListItem>
 							</items>
 						</List>
