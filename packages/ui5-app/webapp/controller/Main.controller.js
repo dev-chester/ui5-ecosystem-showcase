@@ -35,14 +35,14 @@ sap.ui.define(["test/Sample/controller/BaseController", "sap/m/MessageToast"], (
             if (oFileUploader.getValue() === "") {
                 return MessageToast.show(this.getResourceBundle().getText("startPage.upload.chooseFileText"))
             }
-            // Create new image entity:
-            const sUuidV4 = this.getView().getController().generateUuidv4()
 
+            // no primary key needed for payload
+            // cap aspect cuid auto-inserts one
             const oPayload = {
-                ID: sUuidV4,
                 mediatype: "image/png"
             }
 
+            // create entry in persistence for uploaded item
             fetch(`${oFileUploader.getUploadUrl()}`, {
                 method: "POST",
                 body: JSON.stringify(oPayload),
@@ -51,13 +51,21 @@ sap.ui.define(["test/Sample/controller/BaseController", "sap/m/MessageToast"], (
                 }
             })
                 .then(response => {
+                    // exit early if a technical http error happened
                     if (!response.ok) {
                         throw new Error(`${response.status} - ${response.statusText}`)
                     }
-                    return true
+                    return response.json() // make response human readable -> also a Promise!
                 })
-                .then(_ => {
-                    oFileUploader.setUploadUrl(`${oFileUploader.getUploadUrl()}(${sUuidV4})/content`)
+                .then(decodedResponse => {
+                    // decodedResponse:
+                    // BE provided auto-insert style an ID
+                    // and returns it for the before-happended POST
+
+                    // upload of the actual item content!
+                    // (via PUT in custom control FileUploader)
+                    // (also note the useMultipart=false setting on FileUploader!)
+                    oFileUploader.setUploadUrl(`${oFileUploader.getUploadUrl()}(${decodedResponse.ID})/content`)
                     oFileUploader.setSendXHR(true)
                     oFileUploader.upload()
                 })
