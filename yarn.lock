@@ -1607,7 +1607,7 @@
   dependencies:
     "@openui5/sap.ui.core" "1.73.2"
 
-"@openui5/sap.ui.unified@1.73.2":
+"@openui5/sap.ui.unified@1.73.2", "@openui5/sap.ui.unified@^1.73.2":
   version "1.73.2"
   resolved "https://registry.yarnpkg.com/@openui5/sap.ui.unified/-/sap.ui.unified-1.73.2.tgz#e071da70df6eef5629842e5aed21056428d4169a"
   integrity sha512-bqghTDcnWGkpey4A9W9UYjEIB3J567+RN/eccd2/RtYv6+5t5Y+3XUM25/OEVGhv8mTaxHwrA7+fhBA6QQR7Kg==

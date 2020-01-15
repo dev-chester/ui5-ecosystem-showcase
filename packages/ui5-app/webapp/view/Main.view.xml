@@ -4,7 +4,8 @@
 	xmlns:core="sap.ui.core" 
 	xmlns:l="sap.ui.layout" 
 	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:u="sap.ui.unified">
+	xmlns:u="sap.ui.unified"
+	xmlns:s="test.Sample.control">
 	<Page title="{i18n>appTitle}">
 		<headerContent>
 			<core:Icon color="#1873B4" 
@@ -24,7 +25,7 @@
 				</l:BlockLayoutRow>
 				<l:BlockLayoutRow>
 					<l:BlockLayoutCell>
-						<u:FileUploader></u:FileUploader>
+						<s:FileUploaderV4 />
 
 					</l:BlockLayoutCell>
 				</l:BlockLayoutRow>

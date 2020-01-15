@@ -33,6 +33,7 @@
     "@openui5/sap.m": "^1.73.2",
     "@openui5/sap.ui.core": "^1.73.2",
     "@openui5/sap.ui.layout": "^1.73.2",
+    "@openui5/sap.ui.unified": "^1.73.2",
     "@openui5/themelib_sap_fiori_3": "^1.73.2"
   },
   "devDependencies": {
@@ -59,6 +60,7 @@
       "@openui5/sap.ui.core",
       "@openui5/sap.m",
       "@openui5/sap.ui.layout",
+      "@openui5/sap.ui.unified",
       "@openui5/themelib_sap_fiori_3",
       "ui5-middleware-cfdestination",
       "ui5-middleware-livereload",
