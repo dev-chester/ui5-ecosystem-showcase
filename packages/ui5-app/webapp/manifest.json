@@ -54,7 +54,8 @@
       "libs": {
         "sap.m": {},
         "sap.ui.core": {},
-        "sap.ui.layout": {}
+        "sap.ui.layout": {},
+        "sap.ui.unified": {}
       }
     },
     "contentDensities": {
@@ -81,7 +82,6 @@
         "type": "sap.ui.model.json.JSONModel",
         "dataSource": "LatestUI5Datasource"
       }
-
     },
     "routing": {
       "config": {
@@ -96,16 +96,12 @@
         {
           "name": "RouteMain",
           "pattern": "",
-          "target": [
-            "TargetMain"
-          ]
+          "target": ["TargetMain"]
         },
         {
           "name": "RouteOther",
           "pattern": "other",
-          "target": [
-            "TargetOther"
-          ]
+          "target": ["TargetOther"]
         }
       ],
       "targets": {
