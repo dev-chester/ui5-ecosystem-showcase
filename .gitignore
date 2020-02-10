@@ -61,3 +61,6 @@ dist
 
 # WebStorm/IntelliJ IDE
 .idea
+
+# uiveri5 screenshots
+packages/ui5-app/webapp/test/api/target
