@@ -64,3 +64,4 @@ dist
 
 # uiveri5 screenshots
 packages/ui5-app/webapp/test/api/target
+packages/ui5-app/webapp/test/e2e/target
