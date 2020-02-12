@@ -26,13 +26,15 @@
 				</l:BlockLayoutRow>
 				<l:BlockLayoutRow>
 					<l:BlockLayoutCell width="2">
-						<VBox width="100%" alignItems="Center">
-						<s:FileUploaderV4 id="FileUploader" 
-							useMultipart="false" 
-							uploadUrl="/cap/dumpster/Items" 
-							uploadComplete="onUploadComplete" />
-						<Button text="{i18n>startPage.uploadButton.text}" 
-							press="handleUploadPress" />
+						<VBox width="100%" 
+							alignItems="Center">
+							<s:FileUploaderV4 id="FileUploader" 
+								useMultipart="false" 
+								uploadUrl="/cap/dumpster/Items" 
+								uploadComplete="onUploadComplete" />
+							<Button text="{i18n>startPage.uploadButton.text}" 
+								id="UploadButton" 
+								press="handleUploadPress" />
 						</VBox>
 					</l:BlockLayoutCell>
 				</l:BlockLayoutRow>

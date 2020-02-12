@@ -5,7 +5,16 @@
     "version": "0.2.0",
     "configurations": [
         {
-            // make sure to run "npm start" first!
+            "type": "node",
+            "request": "launch",
+            "name": "Debug e2e tests",
+            "program": "${workspaceFolder}/node_modules/@ui5/uiveri5/src/cli.js",
+            "cwd": "${workspaceFolder}/packages/ui5-app/webapp/test/e2e",
+            "args": [
+               "conf.js"
+            ]
+        },
+        {
             "type": "chrome",
             "request": "launch",
             "name": "Debug CAP with Chrome",
