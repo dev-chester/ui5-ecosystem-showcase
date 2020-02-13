@@ -105,7 +105,7 @@ sap.ui.define(["test/Sample/controller/BaseController", "sap/m/MessageToast"], (
         },
 
         onMediaPress(sGuid) {
-            this.byId("PreviewImage").setSrc(`/cap/dumpster/Items(${sGuid})/content`)
+            this.getModel("PreviewImg").setProperty("/imgSrc", `/cap/dumpster/Items(${sGuid})/content`)
         }
     })
 })

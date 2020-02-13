@@ -65,7 +65,7 @@
 							<Text text="preview" 
 								class="sapUiSmallMarginBottom" />
 							<Image id="PreviewImage" 
-								src="" 
+								src="{PreviewImg>/imgSrc}" 
 								decorative="false" />
 						</VBox>
 					</l:BlockLayoutCell>
