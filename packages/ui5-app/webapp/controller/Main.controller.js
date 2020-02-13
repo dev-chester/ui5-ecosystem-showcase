@@ -46,7 +46,7 @@ sap.ui.define(["test/Sample/controller/BaseController", "sap/m/MessageToast"], (
             const _fileLastModified = oUploadedFile.lastModifiedDate
                 ? oUploadedFile.lastModifiedDate.toISOString()
                 : new Date().toISOString()
-                
+
             // no primary key needed for payload
             // cap aspect cuid auto-inserts one
             const oPayload = {
@@ -102,6 +102,10 @@ sap.ui.define(["test/Sample/controller/BaseController", "sap/m/MessageToast"], (
             }
 
             MessageToast.show(sMsg)
+        },
+
+        onMediaPress(sGuid) {
+            this.byId("PreviewImage").setSrc(`/cap/dumpster/Items(${sGuid})/content`)
         }
     })
 })

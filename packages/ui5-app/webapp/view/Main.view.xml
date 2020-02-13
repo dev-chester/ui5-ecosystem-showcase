@@ -46,28 +46,28 @@
 							<items>
 								<CustomListItem>
 									<HBox>
-										<core:Icon size="2rem" src="sap-icon://attachment-photo" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" />
-										<VBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" >
-											<Link text="{Backend>name} ({Backend>ID})" target="{ProductPicUrl}" press="onMediaPress(${Backend>ID})"/>
-											<Label text="{Backend>size} bytes, {Backend>fileLastModified}"/>
+										<core:Icon size="2rem" 
+											src="sap-icon://attachment-photo" 
+											class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" />
+										<VBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom">
+											<Link text="{Backend>name} ({Backend>ID})" 
+												target="{ProductPicUrl}" 
+												press="onMediaPress(${Backend>ID})" />
+											<Label text="{Backend>size} bytes - {Backend>fileLastModified}" />
 										</VBox>
 									</HBox>
-									<!-- <Text text="{Backend>name}" 
-										class="sapUiTinyMargin" />
-									<Text text="({Backend>ID})" 
-										class="sapUiTinyMargin" />
-									<Text text="{Backend>size} bytes" 
-										class="sapUiTinyMargin" />
-									<Image src="/cap/dumpster/Items({Backend>ID})/content" decorative="false" />
-									<Text text="{Backend>fileLastModified}" 
-										class="sapUiTinyMargin" /> -->
 								</CustomListItem>
 							</items>
 						</List>
 					</l:BlockLayoutCell>
 					<l:BlockLayoutCell>
-						<Text text="preview" />
-						<Image src="" decorative="false" />
+						<VBox>
+							<Text text="preview" 
+								class="sapUiSmallMarginBottom" />
+							<Image id="PreviewImage" 
+								src="" 
+								decorative="false" />
+						</VBox>
 					</l:BlockLayoutCell>
 				</l:BlockLayoutRow>
 
